@@ -168,7 +168,7 @@ def main():
                     joint = joint[joint['connection time'] > timedelta(minutes=120)].reset_index(drop = True)
                     
                     
-                    # converting the timedelta column to int
+                    
                     
                     
             
@@ -176,24 +176,23 @@ def main():
                     final = joint[joint['connection time'] == joint['connection time'].min()].reset_index(drop = True)
             
                     # print the result
-                    st.markdown('The Flight time for first flight is ' + str(final['Total Blk time_f1'][0].hour))
-                    st.markdown(str(final['connection time'][0].days * 24 + final['connection time'][0].seconds/3600))
+                    st.markdown('The flight time for first flight is ' + str(final['Total Blk time_f1'][0].hour))
+                    st.markdown('The connection time at {} is: '.format(AWB_origin)+str(final['connection time'][0].days * 24 + final['connection time'][0].seconds/3600))
+                    st.markdown('The flight time for second flight is ' + str(final['Total Blk time_f2'][0].hour))
                     st.markdown(str(final['Total Blk time_f1'][0].hour+ 
                     final['connection time'][0].days * 24 + final['connection time'][0].seconds/3600 + 
                     final['Total Blk time_f2'][0].hour))
                     
                     st.markdown('Found flight route with 1 stop')
                     
+                    # converting the timedelta column to int
                     final['connection time'] = final['connection time'] / pd.Timedelta(hours=1)
                     
                     st.dataframe(final)
                     
-                    for c in final.columns:
-                        st.markdown(c)
-                        st.markdown(type(final[c][0]))
+             
                     
-                    
-                   
+          
                     
                 
                 # there are no transit airport found
