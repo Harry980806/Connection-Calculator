@@ -302,13 +302,21 @@ def main():
                     st.markdown('The connection time at {} is: '.format(final['Dept Sta'][0])+
                                 str(round(final['connection_time_f2'][0].days * 24 + final['connection_time_f2'][0].seconds/3600,1)) + ' hours')
                     
+                    
+                    st.markdown('The scheduled third flight is from '  + final['Dept Sta'][0] + ' to ' + final['Arvl Sta'][0] + 
+                               ' ,on flight WS{}'.format(final['Flt Num'][0]))
+                    
+                    st.markdown('The flight time for third flight is ' + str(round(final['Total Blk time'][0].hour + 
+                                                                                    final['Total Blk time'][0].minute/60,1)) + ' hours')
+                    
                     st.markdown('The total travel time is ' + 
                                 str(round(final['Total Blk time_f1'][0].hour+ final['Total Blk time_f1'][0].minute/60+
                                       final['connection_time_f1'][0].days * 24 + 
                                       final['connection_time_f1'][0].seconds/3600 +
                                       final['connection_time_f2'][0].days * 24 + 
                                       final['connection_time_f2'][0].seconds/3600 +
-                                      final['Total Blk time_f2'][0].hour + final['Total Blk time_f2'][0].minute/60,1)) +' hours')
+                                      final['Total Blk time_f2'][0].hour + final['Total Blk time_f2'][0].minute/60+
+                                      final['Total Blk time'][0].hour + final['Total Blk time'][0].minute/60,1)) +' hours')
                     
                     
                       # converting the timedelta column to int
