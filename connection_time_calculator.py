@@ -115,6 +115,7 @@ def main():
         if AircraftType != 'ALL':
             t = t[t['Equip'] == AircraftType]
             
+        st.markdown(AircraftType)
         st.markdown(len(t))
         
         
