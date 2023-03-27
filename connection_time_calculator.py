@@ -193,8 +193,10 @@ def main():
                     st.markdown('The flight time for second flight is ' + str(round(final['Total Blk time_f2'][0].hour + 
                                                                                     final['Total Blk time_f2'][0].minute/60,1)) + ' hours')
                     st.markdown('The total travel time is' + 
-                                str(round(final['Total Blk time_f1'][0].hour+ final['connection time'][0].days * 24 + final['connection time'][0].seconds/3600 + 
-                    final['Total Blk time_f2'][0].hour,1)))
+                                str(round(final['Total Blk time_f1'][0].hour+ final['Total Blk time_f1'][0].minute/60
+                                      final['connection time'][0].days * 24 + 
+                                      final['connection time'][0].seconds/3600 +
+                                      final['Total Blk time_f2'][0].hour+ + final['Total Blk time_f2'][0].minute/60,1)))
                     
                     st.markdown('Found flight route with 1 stop')
                     
