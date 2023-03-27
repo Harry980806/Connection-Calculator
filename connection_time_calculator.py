@@ -170,7 +170,7 @@ def main():
                     
                     # converting the timedelta column to int
                     
-                    joint['connection time'] = joint['connection time'] / pd.Timedelta(hours=1)
+                    
             
                     # get minimum connection time.
                     final = joint[joint['connection time'] == joint['connection time'].min()].reset_index(drop = True)
@@ -183,6 +183,8 @@ def main():
                     final['Total Blk time_f2'][0].hour))
                     
                     st.markdown('Found flight route with 1 stop')
+                    
+                    joint['connection time'] = joint['connection time'] / pd.Timedelta(hours=1)
                     
                     st.code(final)
                     
