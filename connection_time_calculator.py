@@ -74,7 +74,7 @@ def main():
     
     st.title('Flight Route & Time Calculator ✈️ ')
     
-    st.write('<p style="font-size:26px; color:Black;">Please choose the AWB origin,destination,aircraftType and desired first flight date</p>',
+    st.write('<p style="font-size:14px; color:Black;">Please choose the AWB origin,destination,aircraftType and desired first flight date</p>',
                     unsafe_allow_html=True)
 
 
