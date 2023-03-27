@@ -278,7 +278,7 @@ def main():
                     
                      # converting the timedelta column to int
                     final['connection_time_f1'] = final['connection_time_f1'] / pd.Timedelta(hours=1)
-                    final['connection_time_f1'] = final['connection_time_f1'] / pd.Timedelta(hours=1)
+                    final['connection_time_f2'] = final['connection_time_f2'] / pd.Timedelta(hours=1)
                     
                     st.dataframe(final)
 
