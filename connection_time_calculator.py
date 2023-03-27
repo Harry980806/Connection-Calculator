@@ -178,7 +178,7 @@ def main():
                     
                     st.markdown('Found flight route with 1 stop')
                     
-                    st.table(final)
+                    # st.table(final)
                 
                 # there are no transit airport found
                 else:
