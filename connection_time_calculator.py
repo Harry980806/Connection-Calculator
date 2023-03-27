@@ -72,7 +72,7 @@ def data_cleaning(df1,df2,df3):
 
 def main():
     
-    st.title('Flight Route&Time Calculator and emojis :plane:')
+    st.title('Flight Route & Time Calculator ✈️ ')
 
 
     pax= load_data_excel('S23_WB_NB_DH4_08Mar-28Oct.xlsx','S23 Pax Leg Sked')
