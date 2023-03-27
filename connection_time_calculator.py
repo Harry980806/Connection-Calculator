@@ -171,6 +171,7 @@ def main():
                     final = joint[joint['connection time'] == joint['connection time'].min()].reset_index(drop = True)
             
                     # print the result
+                    st.markdown(str(final['Total Blk time_f1'][0].hour)
                     st.markdown(str(final['connection time'][0].days * 24 + final['connection time'][0].seconds/3600))
                     st.markdown(str(final['Total Blk time_f1'][0].hour+ 
                     final['connection time'][0].days * 24 + final['connection time'][0].seconds/3600 + 
