@@ -105,7 +105,7 @@ def main():
     if st.button('Show total travel time'):
         st.write('Calculating...')
         
-        st.markdown(t.columns)
+        
 
 
         required_final_flights = t[(t['Arvl Sta'] == AWB_destination)&
@@ -176,6 +176,8 @@ def main():
             
                     # get minimum connection time.
                     final = joint[joint['connection time'] == joint['connection time'].min()].reset_index(drop = True)
+                    
+                    st.markdown(final.columns)
             
                     # print the result
                     st.markdown('The scheduled first flight is from '  + final['Dept Sta_f1'][0] + ' to ' + final['Arvl Sta_f1'][0] + 
