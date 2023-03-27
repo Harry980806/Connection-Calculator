@@ -72,11 +72,11 @@ def data_cleaning(df1,df2,df3):
 def main():
 
 
-    pax= load_data_excel('C:/users/dwang/downloads/S23_WB_NB_DH4_08Mar-28Oct.xlsx','S23 Pax Leg Sked')
+    pax= load_data_excel('S23_WB_NB_DH4_08Mar-28Oct.xlsx','S23 Pax Leg Sked')
 
-    freighter = load_data_excel('C:/users/dwang/downloads/W22_S23_Cargo Freight Sked_26Mar-28Oct.xlsx','Daily Leg Schedule')
+    freighter = load_data_excel('W22_S23_Cargo Freight Sked_26Mar-28Oct.xlsx','Daily Leg Schedule')
     
-    airport_timezone = load_data_csv('C:/users/dwang/downloads/Airport timezone.csv')
+    airport_timezone = load_data_csv('Airport timezone.csv')
 
     freighter = freighter[freighter['Day'].notnull()]
     freighter['Flt Num'] = freighter['Flt Num'].astype(int).astype(str)
