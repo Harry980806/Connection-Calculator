@@ -183,13 +183,20 @@ def main():
 
                     joint = joint[joint['connection time'] > timedelta(minutes=120)].reset_index(drop = True)
                     
+                    #  find not the minimum connection time, but the shortest overall flight time
+                    
+                    joint['total_travel_time'] = [None] * len(joint)
+                    for i in range(0,len(joint)):
+                        joint.iloc[i,-1] = f2_f3_joint['Total Blk time_f1'][i].hour+\
+                        joint['Total Blk time_f2'][i].hour+\
+                        joint['connection time'][i].days * 24 + joint['connection time'][i].seconds/3600
                     
                     
                     
                     
             
                     # get minimum connection time.
-                    final = joint[joint['connection time'] == joint['connection time'].min()].reset_index(drop = True)
+                    final = joint[joint['total_travel_time'] == joint['total_travel_time'].min()].reset_index(drop = True)
                     
                     # st.markdown(final.columns)
             
