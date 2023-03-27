@@ -177,11 +177,11 @@ def main():
                     # get minimum connection time.
                     final = joint[joint['connection time'] == joint['connection time'].min()].reset_index(drop = True)
                     
-                    st.markdown(final.columns)
+                    # st.markdown(final.columns)
             
                     # print the result
                     st.markdown('The scheduled first flight is from '  + final['Dept Sta_f1'][0] + ' to ' + final['Arvl Sta_f1'][0] + 
-                               ' ,on flight Number WS{}'.format(final['Flt Num'][0]))
+                               ' ,on flight Number WS{}'.format(final['Flt Num_f1'][0]))
                     st.markdown('The flight time for first flight is ' + str(round(final['Total Blk time_f1'][0].hour + 
                                                                                    final['Total Blk time_f1'][0].minute/60,1)) + ' hours')
                     st.markdown('The connection time at {} is: '.format(final['Dept Sta_f2'][0])+
