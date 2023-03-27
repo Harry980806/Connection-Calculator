@@ -196,7 +196,7 @@ def main():
                                 str(round(final['Total Blk time_f1'][0].hour+ final['Total Blk time_f1'][0].minute/60
                                       final['connection time'][0].days * 24 + 
                                       final['connection time'][0].seconds/3600 +
-                                      final['Total Blk time_f2'][0].hour+ + final['Total Blk time_f2'][0].minute/60,1)))
+                                      final['Total Blk time_f2'][0].hour + final['Total Blk time_f2'][0].minute/60,1)) +' hours')
                     
                     st.markdown('Found flight route with 1 stop')
                     
