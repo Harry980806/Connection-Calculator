@@ -71,6 +71,8 @@ def data_cleaning(df1,df2,df3):
 
 
 def main():
+    
+    st.title('A title with _italics_ :blue[colors] and emojis :sunglasses:')
 
 
     pax= load_data_excel('S23_WB_NB_DH4_08Mar-28Oct.xlsx','S23 Pax Leg Sked')
@@ -219,7 +221,7 @@ def main():
                                       final['connection time'][0].seconds/3600 +
                                       final['Total Blk time_f2'][0].hour + final['Total Blk time_f2'][0].minute/60,1)) +' hours')
                     
-                    st.markdown('Found flight route with 1 stop')
+                    st.markdown('Found flight route with 1 stop, please see the table below for details')
                     
                     # converting the timedelta column to int
                     final['connection time'] = final['connection time'] / pd.Timedelta(hours=1)
