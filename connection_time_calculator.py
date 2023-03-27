@@ -113,14 +113,14 @@ def main():
     if st.button('Show total travel time'):
         st.write('Calculating...')
         
+        
+        # Filter the Dataset to contain only the specified AircraftType
         if AircraftType != 'ALL':
             t = t[t['Equip'] == AircraftType]
             
-        st.markdown(AircraftType)
-        st.markdown(len(t))
+  
         
-        
-
+    
 
         required_final_flights = t[(t['Arvl Sta'] == AWB_destination)&
                                             (t['Day'] >= AWB_date)&
