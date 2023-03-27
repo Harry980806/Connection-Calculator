@@ -184,6 +184,8 @@ def main():
                     for c in final.columns:
                         st.markdown(c)
                         st.markdown(type(final[c][0]))
+                        
+                    st.dataframe(final)
                 
                 # there are no transit airport found
                 else:
