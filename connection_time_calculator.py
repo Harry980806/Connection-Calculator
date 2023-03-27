@@ -276,6 +276,10 @@ def main():
                         
                     final =  f2_f3_joint[f2_f3_joint['total_travel_time'] == f2_f3_joint['total_travel_time'].min()].reset_index()
                     
+                    # if there are multiple flight schedule found, just pick the first one.
+                    
+                    final = final.head(1)
+                    
                      # converting the timedelta column to int
                     final['connection_time_f1'] = final['connection_time_f1'] / pd.Timedelta(hours=1)
                     final['connection_time_f2'] = final['connection_time_f2'] / pd.Timedelta(hours=1)
