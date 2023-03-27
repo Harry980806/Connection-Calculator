@@ -113,7 +113,8 @@ def main():
         # look if there are direct flights
         direct_flights = t[(t['Dept Sta'] == AWB_origin)&
                         (t['Arvl Sta'] == AWB_destination)&
-                        (t['Day'] >= AWB_date)].reset_index(drop = True)
+                        (t['Day'] >= AWB_date)&
+                          (t['Day']<= str(AWB_date_new)[:10])].reset_index(drop = True)
 
         # if yes, calculate direct flight time
         
