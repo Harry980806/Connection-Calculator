@@ -176,11 +176,12 @@ def main():
                     final = joint[joint['connection time'] == joint['connection time'].min()].reset_index(drop = True)
             
                     # print the result
-                    st.markdown('The scheduled first flight is from '  + final['Dept Sta_f1'][0] + ' to ' + final['Arvl Sta_f1'][0])
+                    st.markdown('The scheduled first flight is from '  + final['Dept Sta_f1'][0] + ' to ' + final['Arvl Sta_f1'][0] + 
+                               ' ,on flight Number WS{}'.format(final['Flt Num'][0]))
                     st.markdown('The flight time for first flight is ' + str(round(final['Total Blk time_f1'][0].hour + 
                                                                                    final['Total Blk time_f1'][0].minute/60,1)) + ' hours')
                     st.markdown('The connection time at {} is: '.format(final['Dept Sta_f2'][0])+
-                                str(round(final['connection time'][0].days * 24 + final['connection time'][0].seconds/3600,1)))
+                                str(round(final['connection time'][0].days * 24 + final['connection time'][0].seconds/3600,1)) + ' hours')
                     st.markdown('The flight time for second flight is ' + str(round(final['Total Blk time_f2'][0].hour + 
                                                                                     final['Total Blk time_f2'][0].minute/60,1)) + ' hours')
                     st.markdown(str(final['Total Blk time_f1'][0].hour+ 
