@@ -74,9 +74,9 @@ def main():
     
     st.title('Flight Route & Time Calculator ✈️ ')
     
-    st.write('<p style="font-size:14px; color:Black;">Given the AWB origin,destination,aircraft type and desired first flight date.</p>',
+    st.write('<p style="font-size:14px; color:Black;">Please input the AWB origin,destination,aircraft type and desired first flight date.</p>',
                  unsafe_allow_html=True)
-    st.write('<p style="font-size:14px; color:Black;">this app will propose a flight route to minimize the total travel time, which is defined by flight time + connection time at the transition airport.</p>',
+    st.write('<p style="font-size:16px; color:Black;">This app will propose a flight route to minimize the total travel time, which is defined by flight time + connection time at the transition airport.</p>',
                  unsafe_allow_html=True)
 
     pax= load_data_excel('S23_WB_NB_DH4_08Mar-28Oct.xlsx','S23 Pax Leg Sked')
