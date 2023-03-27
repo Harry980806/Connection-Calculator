@@ -34,6 +34,7 @@ def data_cleaning(df1,df2,df3):
 
     df['Day'] = df['Day'].astype(str)
     df['Dept Time'] = df['Dept Time'].astype(str)
+    df['Equip'] = df['Equip'].astype(str)
     df['Dept Time'] = pd.to_datetime(df['Day'] + ' ' + df['Dept Time'])
     df['Dept Time'] = pd.to_datetime(df['Dept Time'])
 
