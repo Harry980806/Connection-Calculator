@@ -184,7 +184,7 @@ def main():
                     
                     st.markdown('Found flight route with 1 stop')
                     
-                    joint['connection time'] = joint['connection time'] / pd.Timedelta(hours=1)
+                    final['connection time'] = final['connection time'] / pd.Timedelta(hours=1)
                     
                     st.dataframe(final)
                     
