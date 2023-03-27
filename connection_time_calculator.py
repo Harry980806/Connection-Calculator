@@ -94,10 +94,17 @@ def main():
     AWB_destination = st.selectbox(
     'Select AWB destination',
     t['Arvl Sta'].unique().tolist())
+    
+    
+    AircraftType = st.selectbox(
+    'Select Aircraft Type',
+    ['789','73H','73W','7F8','7M8','DH4'])
 
     AWB_date = st.date_input(
      "Select First Flight Date")
     AWB_date = str(AWB_date)
+    
+    
 
     AWB_date_new = datetime.strptime(AWB_date, "%Y-%m-%d")+ timedelta(days=7)
 
