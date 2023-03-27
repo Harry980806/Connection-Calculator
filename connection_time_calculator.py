@@ -124,14 +124,14 @@ def main():
             st.markdown('There are direct flights')
             st.markdown('Flight time is ' + str(direct_flights['Total Blk time'][0]))
             st.markdown('Connection time is 0')
-            st.markdown('Total travel time is' + str(direct_flights['Total Blk time'][0]))
+            st.markdown('Total travel time is ' + str(direct_flights['Total Blk time'][0]))
             st.markdown('These are direct flights for the next 7 days including the input flight date')
             st.dataframe(direct_flights)
 
             
         else: # if there are no direct flights, and assume only 1 stop
             
-            st.markdown('There are no direct flights')
+            st.markdown('Direct flights not found')
             
             # get all flights scheduled to departure from AWB origin on the selected flight date
             
@@ -165,10 +165,10 @@ def main():
                     # calculate time between flight1 arrives and flight2 departures
                         joint.iloc[i,-1] = pd.Timedelta(f2_dept - f1_arrive)
 
-                    joint = joint[joint['connection time'] > timedelta(minutes=120)]
+                    joint = joint[joint['connection time'] > timedelta(minutes=120)].reset_index(drop = True)
             
                     # get minimum connection time.
-                    final = joint[joint['connection time'] == joint['connection time'].min()].reset_index()
+                    final = joint[joint['connection time'] == joint['connection time'].min()].reset_index(drop = True)
             
                     # print the result
                     st.markdown(str(final['connection time'][0].days * 24 + final['connection time'][0].seconds/3600))
