@@ -180,6 +180,10 @@ def main():
                     st.markdown('Found flight route with 1 stop')
                     
                     st.code(final)
+                    
+                    for c in range(0,len(final)):
+                        st.markdown(c)
+                        st.markdown(type(final[c][0]))
                 
                 # there are no transit airport found
                 else:
