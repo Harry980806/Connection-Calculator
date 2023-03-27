@@ -184,6 +184,8 @@ def main():
                 # there are no transit airport found
                 else:
                     
+                    st.markdown('No 1 stop flight schedule found')
+                    
                     required_final_flights = t[(t['Arvl Sta'] == AWB_destination)&
                                             (t['Day'] >= AWB_date)&
                                             (t['Day']<= str(AWB_date_new)[:10])].reset_index(drop = True)
