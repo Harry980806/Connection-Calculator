@@ -246,7 +246,7 @@ def main():
                         f2_f3_joint['connection_time_f2'][i].days * 24 + f2_f3_joint['connection_time_f2'][i].seconds/3600    
                         
                     final =  f2_f3_joint[f2_f3_joint['total_travel_time'] == f2_f3_joint['total_travel_time'].min()].reset_index()
-                    print(final['total_travel_time'][0])
+                    # print(final['total_travel_time'][0])
 
     st.markdown('Calculation Done')
                     
