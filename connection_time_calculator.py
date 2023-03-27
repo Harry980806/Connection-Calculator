@@ -117,7 +117,7 @@ def main():
 
         # if yes, calculate direct flight time
         
-        st.DataFrame(direct_flights)
+        st.dataframe(direct_flights)
         
         if len(direct_flights) != 0:
             st.markdown('There are direct flights')
