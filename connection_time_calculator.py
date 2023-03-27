@@ -177,7 +177,7 @@ def main():
             
                     # print the result
                     st.markdown('The scheduled first flight is from '  + final['Dept Sta_f1'][0] + ' to ' + final['Arvl Sta_f1'][0])
-                    st.markdown('The flight time for first flight is ' + str(final['Total Blk time_f1'][0].hour) + ' hours')
+                    st.markdown('The flight time for first flight is ' + str(final['Total Blk time_f1'][0].hour + final['Total Blk time_f1'][0].minute) + ' hours')
                     st.markdown('The connection time at {} is: '.format(final['Dept Sta_f2'][0])+str(final['connection time'][0].days * 24 + final['connection time'][0].seconds/3600))
                     st.markdown('The flight time for second flight is ' + str(final['Total Blk time_f2'][0].hour)+ ' hours')
                     st.markdown(str(final['Total Blk time_f1'][0].hour+ 
