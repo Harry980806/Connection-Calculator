@@ -277,7 +277,8 @@ def main():
                     final =  f2_f3_joint[f2_f3_joint['total_travel_time'] == f2_f3_joint['total_travel_time'].min()].reset_index()
                     
                      # converting the timedelta column to int
-                    final['connection time'] = final['connection time'] / pd.Timedelta(hours=1)
+                    final['connection_time_f1'] = final['connection_time_f1'] / pd.Timedelta(hours=1)
+                    final['connection_time_f1'] = final['connection_time_f1'] / pd.Timedelta(hours=1)
                     
                     st.dataframe(final)
 
