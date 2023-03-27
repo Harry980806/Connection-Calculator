@@ -186,7 +186,7 @@ def main():
                     
                     joint['connection time'] = joint['connection time'] / pd.Timedelta(hours=1)
                     
-                    st.code(final)
+                    st.dataframe(final)
                     
                     for c in final.columns:
                         st.markdown(c)
