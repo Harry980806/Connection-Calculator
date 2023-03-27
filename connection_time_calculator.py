@@ -104,6 +104,8 @@ def main():
 
     if st.button('Show total travel time'):
         st.write('Calculating...')
+        
+        st.markdown(t.columns)
 
 
         required_final_flights = t[(t['Arvl Sta'] == AWB_destination)&
