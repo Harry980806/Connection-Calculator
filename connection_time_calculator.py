@@ -177,6 +177,8 @@ def main():
                     final['Total Blk time_f2'][0].hour))
                     
                     st.markdown('Found flight route with 1 stop')
+                    
+                    st.dataframe(final)
                 
                 # there are no transit airport found
                 else:
