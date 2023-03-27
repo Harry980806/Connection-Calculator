@@ -126,7 +126,7 @@ def main():
             st.markdown('Connection time is 0')
             st.markdown('Total travel time is ' + str(direct_flights['Total Blk time'][0]))
             st.markdown('These are direct flights for the next 7 days including the input flight date')
-            st.dataframe(direct_flights)
+            st.table(direct_flights)
 
             
         else: # if there are no direct flights, and assume only 1 stop
