@@ -113,7 +113,7 @@ def main():
         st.write('Calculating...')
         
         if AircraftType != 'ALL':
-            t = t[t['Eqiup'] == AircraftType]
+            t = t[t['Equip'] == AircraftType]
         
         
 
