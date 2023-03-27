@@ -98,7 +98,7 @@ def main():
     
     AircraftType = st.selectbox(
     'Select Aircraft Type',
-    ['789','73H','73W','7F8','7M8','DH4'])
+    ['789','73H','73W','7F8','7M8','DH4','ALL'])
 
     AWB_date = st.date_input(
      "Select First Flight Date")
@@ -111,6 +111,9 @@ def main():
 
     if st.button('Show total travel time'):
         st.write('Calculating...')
+        
+        if AircraftType != 'ALL':
+            t = t[t['Eqiup'] == AircraftType]
         
         
 
