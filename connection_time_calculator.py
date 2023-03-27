@@ -187,7 +187,7 @@ def main():
                     
                     joint['total_travel_time'] = [None] * len(joint)
                     for i in range(0,len(joint)):
-                        joint.iloc[i,-1] = f2_f3_joint['Total Blk time_f1'][i].hour+\
+                        joint.iloc[i,-1] = joint['Total Blk time_f1'][i].hour+\
                         joint['Total Blk time_f2'][i].hour+\
                         joint['connection time'][i].days * 24 + joint['connection time'][i].seconds/3600
                     
