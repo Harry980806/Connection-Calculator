@@ -166,6 +166,11 @@ def main():
                         joint.iloc[i,-1] = pd.Timedelta(f2_dept - f1_arrive)
 
                     joint = joint[joint['connection time'] > timedelta(minutes=120)].reset_index(drop = True)
+                    
+                    
+                    # converting the timedelta column to int
+                    
+                    joint['connection time'] = joint['connection time'] / pd.Timedelta(hours=1)
             
                     # get minimum connection time.
                     final = joint[joint['connection time'] == joint['connection time'].min()].reset_index(drop = True)
@@ -184,8 +189,10 @@ def main():
                     for c in final.columns:
                         st.markdown(c)
                         st.markdown(type(final[c][0]))
-                        
-                    st.dataframe(final)
+                    
+                    
+                   
+                    
                 
                 # there are no transit airport found
                 else:
