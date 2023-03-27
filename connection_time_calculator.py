@@ -73,6 +73,9 @@ def data_cleaning(df1,df2,df3):
 def main():
     
     st.title('Flight Route & Time Calculator ✈️ ')
+    
+    st.write('<p style="font-size:26px; color:Black;">Please choose the AWB origin,destination,aircraftType and desired first flight date</p>',
+                    unsafe_allow_html=True)
 
 
     pax= load_data_excel('S23_WB_NB_DH4_08Mar-28Oct.xlsx','S23 Pax Leg Sked')
