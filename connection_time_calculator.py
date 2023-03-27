@@ -116,6 +116,9 @@ def main():
                         (t['Day'] >= AWB_date)].reset_index(drop = True)
 
         # if yes, calculate direct flight time
+        
+        st.DataFrame(direct_flights)
+        
         if len(direct_flights) != 0:
             st.markdown('There are direct flights')
             st.markdown('Flight time is ' + str(direct_flights['Total Blk time'][0]))
