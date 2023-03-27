@@ -181,7 +181,7 @@ def main():
                     
                     st.code(final)
                     
-                    for c in range(0,len(final)):
+                    for c in range(0,final.columns):
                         st.markdown(c)
                         st.markdown(type(final[c][0]))
                 
