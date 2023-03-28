@@ -166,7 +166,7 @@ def main():
             
         else: # if there are no direct flights, and assume only 1 stop
             
-            st.markdown('No Direct Flights were found.')
+            st.markdown('No direct flights were found.')
             
             # get all flights scheduled to departure from AWB origin on the selected flight date
             
@@ -223,6 +223,9 @@ def main():
                     # st.markdown(final.columns)
             
                     # print the result
+                
+                
+                
                     st.markdown('The scheduled first flight is from '  + final['Dept Sta_f1'][0] + ' to ' + final['Arvl Sta_f1'][0] + 
                                ' ,on flight WS{}'.format(final['Flt Num_f1'][0]))
                     st.markdown('The flight time for first flight is ' + str(round(final['Total Blk time_f1'][0].hour + 
@@ -246,7 +249,7 @@ def main():
                     # converting the timedelta column to int
                     final['connection time'] = final['connection time'] / pd.Timedelta(hours=1)
                     
-                    st.dataframe(final)
+                    st.dataframe(final.T)
                     
              
                     
