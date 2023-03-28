@@ -276,7 +276,7 @@ def main():
                     # converting the timedelta column to int
                     final['connection time'] = final['connection time'] / pd.Timedelta(hours=1)
                     
-                    st.table(result_df.set_index('Day_f1').T.iloc[1:])
+                    st.table(result_df.set_index('F1:Flight Date').T.iloc[1:])
                     
              
                     
