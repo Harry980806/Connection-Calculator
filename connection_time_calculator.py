@@ -175,8 +175,11 @@ def main():
             first_flights_departed= t[(t['Dept Sta'] == AWB_origin)&
                                       (t['Day'] == AWB_date)].reset_index(drop = True)
             
-            if len(first_flights_departed)== 0: # if there are no departing flights
+
+            # if there are no departing flights
+            if len(first_flights_departed)== 0:
                 st.markdown('There are no flights departed from {}'.format(AWB_origin))
+                st.markdown('Please change your AWB Date and/or Aircraft Type and try again.')
                 
             else:
     
