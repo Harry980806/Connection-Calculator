@@ -243,11 +243,11 @@ def main():
                                                       'Equip_f2' : 'F2:Aircraft Type',
                                                       'arrival_time_local_tz_f2':'F2:Arrival Time'})
                     
-                    result_df = result_df[['F1:Flight Date','F1:Weekday','F1:Flight Number',
-                                          'F1:Depature Station','F1:Arrival Station','F1:Departure Time',
+                    result_df = result_df[['F1:Flight Number','F1:Departure Time','F1:Weekday',
+                                          'F1:Depature Station','F1:Arrival Station',
                                           'F1:Flight Time','F1:Aircraft Type','F1:Arrival Time',
-                                          'F2:Flight Date','F2:Weekday','F2:Flight Number',
-                                          'F2:Depature Station','F2:Arrival Station','F2:Departure Time',
+                                          'F2:Flight Number','F2:Departure Time','F2:Weekday',
+                                          'F2:Depature Station','F2:Arrival Station',
                                           'F2:Flight Time','F2:Aircraft Type','F2:Arrival Time',
                                           'connection time','total_travel_time']]
                 
@@ -276,7 +276,7 @@ def main():
                     # converting the timedelta column to int
                     final['connection time'] = final['connection time'] / pd.Timedelta(hours=1)
                     
-                    st.table(result_df.set_index('F1:Flight Date').T.iloc[1:])
+                    st.table(result_df.T.iloc[1:])
                     
              
                     
