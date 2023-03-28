@@ -107,12 +107,6 @@ def main():
     ['789','73H','73W','7F8','7M8','DH4','ALL'],
     ['789', '7F8'])
     
-    st.markdown(AircraftTypes)
-    
-    
-    AircraftType = st.selectbox(
-    'Select Aircraft Type',
-    ['789','73H','73W','7F8','7M8','DH4','ALL'])
 
     AWB_date = st.date_input(
      "Select First Flight Date")
