@@ -220,9 +220,15 @@ def main():
                     # get minimum connection time.
                     final = joint[joint['total_travel_time'] == joint['total_travel_time'].min()].reset_index(drop = True)
                     
-                    # st.markdown(final.columns)
+                    
             
                     # print the result
+                
+                    result_df = final.rename(columns ={'Day_f1': 'F1:Flight_Date',
+                                                      'Flt Num_f1': 'F1:Flight_Number',
+                                                      'Dept Sta_f1':'F1:Depature Station',
+                                                      'Arvl Sta_f1':'F1:Arrival Station',
+                                                      'Dept Time_f1:'F1:Departure Time'} )
                 
                 
                 
@@ -249,7 +255,7 @@ def main():
                     # converting the timedelta column to int
                     final['connection time'] = final['connection time'] / pd.Timedelta(hours=1)
                     
-                    st.table(final.T)
+                    st.table(result_df.T)
                     
              
                     
