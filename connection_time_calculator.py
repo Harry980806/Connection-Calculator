@@ -225,12 +225,23 @@ def main():
                     # print the result
                 
                     result_df = final.rename(columns ={'Day_f1': 'F1:Flight_Date',
-                                                      'Weekday_f1': 'F1:Flight_Number',
+                                                      'Weekday_f1': 'F1:Weekday',
+                                                      'Flt Num_f1': 'F1:Flight_Number',
                                                       'Dept Sta_f1':'F1:Depature Station',
                                                       'Arvl Sta_f1':'F1:Arrival Station',
                                                       'Dept Time_f1':'F1:Departure Time',
-                                                      'Total Blk time_f1':'F1: Flight Time',
-                                                      'Equip_f1' : 'F1:Aircraft Type'} )
+                                                      'Total Blk time_f1':'F1:Flight Time',
+                                                      'Equip_f1' : 'F1:Aircraft Type',
+                                                      'arrival_time_local_tz_f1':'F1:Arrival Time',
+                                                      'Day_f2': 'F2:Flight_Date',
+                                                      'Weekday_f2': 'F2:Weekday',
+                                                      'Flt Num_f2': 'F2:Flight_Number',
+                                                      'Dept Sta_f2':'F2:Depature Station',
+                                                      'Arvl Sta_f2':'F2:Arrival Station',
+                                                      'Dept Time_f2':'F2:Departure Time',
+                                                      'Total Blk time_f2':'F2:Flight Time',
+                                                      'Equip_f2' : 'F1:Aircraft Type',
+                                                      'arrival_time_local_tz_f2':'F2:Arrival Time'})
                 
                 
                 
