@@ -391,7 +391,7 @@ def main():
                                                       'Equip' : 'F3:Aircraft Type',
                                                       'arrival_time_local_tz':'F3:Arrival Time'})
                     
-                         result_df = result_df[['F1:Flight Number','F1:Departure Time','F1:Weekday',
+                        result_df = result_df[['F1:Flight Number','F1:Departure Time','F1:Weekday',
                                           'F1:Depature Station','F1:Arrival Station',
                                           'F1:Flight Time','F1:Aircraft Type','F1:Arrival Time',
                                                 
