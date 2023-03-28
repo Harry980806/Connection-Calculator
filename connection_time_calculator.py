@@ -356,50 +356,98 @@ def main():
                         # if there are multiple flight schedule found, just pick the first one.
 
                         final = final.head(1)
+                        
+                        
+                        # rename the dataframe for display:
+                        
+                        
+                        result_df = final.rename(columns ={'Day_f1': 'F1:Flight Date',
+                                                      'Weekday_f1': 'F1:Weekday',
+                                                      'Flt Num_f1': 'F1:Flight Number',
+                                                      'Dept Sta_f1':'F1:Depature Station',
+                                                      'Arvl Sta_f1':'F1:Arrival Station',
+                                                      'Dept Time_f1':'F1:Departure Time',
+                                                      'Total Blk time_f1':'F1:Flight Time',
+                                                      'Equip_f1' : 'F1:Aircraft Type',
+                                                      'arrival_time_local_tz_f1':'F1:Arrival Time',
+                                                           
+                                                      'Day_f2': 'F2:Flight Date',
+                                                      'Weekday_f2': 'F2:Weekday',
+                                                      'Flt Num_f2': 'F2:Flight Number',
+                                                      'Dept Sta_f2':'F2:Depature Station',
+                                                      'Arvl Sta_f2':'F2:Arrival Station',
+                                                      'Dept Time_f2':'F2:Departure Time',
+                                                      'Total Blk time_f2':'F2:Flight Time',
+                                                      'Equip_f2' : 'F2:Aircraft Type',
+                                                      'arrival_time_local_tz_f2':'F2:Arrival Time',
+                                                          
+                                                      'Day': 'F3:Flight Date',
+                                                      'Weekday': 'F3:Weekday',
+                                                      'Flt Num': 'F3:Flight Number',
+                                                      'Dept Sta':'F3:Depature Station',
+                                                      'Arvl Sta':'F3:Arrival Station',
+                                                      'Dept Time':'F3:Departure Time',
+                                                      'Total Blk time':'F3:Flight Time',
+                                                      'Equip' : 'F3:Aircraft Type',
+                                                      'arrival_time_local_tz':'F3:Arrival Time'})
+                    
+                         result_df = result_df[['F1:Flight Number','F1:Departure Time','F1:Weekday',
+                                          'F1:Depature Station','F1:Arrival Station',
+                                          'F1:Flight Time','F1:Aircraft Type','F1:Arrival Time',
+                                                
+                                          'F2:Flight Number','F2:Departure Time','F2:Weekday',
+                                          'F2:Depature Station','F2:Arrival Station',
+                                          'F2:Flight Time','F2:Aircraft Type','F2:Arrival Time',
+                                                
+                                          'F3:Flight Number','F3:Departure Time','F2:Weekday',
+                                          'F3:Depature Station','F3:Arrival Station',
+                                          'F3:Flight Time','F3:Aircraft Type','F3:Arrival Time',
+                                                
+                                          'connection_time_f1','connection_time_f2','total_travel_time']]
 
 
 
 
 
-                        st.markdown('The scheduled first flight is from '  + final['Dept Sta_f1'][0] + ' to ' + final['Arvl Sta_f1'][0] + 
-                                   ' ,on flight WS{}'.format(final['Flt Num_f1'][0]))
+#                         st.markdown('The scheduled first flight is from '  + final['Dept Sta_f1'][0] + ' to ' + final['Arvl Sta_f1'][0] + 
+#                                    ' ,on flight WS{}'.format(final['Flt Num_f1'][0]))
 
-                        st.markdown('The flight time for first flight is ' + str(round(final['Total Blk time_f1'][0].hour + 
-                                                                                       final['Total Blk time_f1'][0].minute/60,1)) + ' hours')
+#                         st.markdown('The flight time for first flight is ' + str(round(final['Total Blk time_f1'][0].hour + 
+#                                                                                        final['Total Blk time_f1'][0].minute/60,1)) + ' hours')
 
-                        st.markdown('The connection time at {} is: '.format(final['Dept Sta_f2'][0])+
-                                    str(round(final['connection_time_f1'][0].days * 24 + final['connection_time_f1'][0].seconds/3600,1)) + ' hours')
+#                         st.markdown('The connection time at {} is: '.format(final['Dept Sta_f2'][0])+
+#                                     str(round(final['connection_time_f1'][0].days * 24 + final['connection_time_f1'][0].seconds/3600,1)) + ' hours')
 
-                        st.markdown('The scheduled second flight is from '  + final['Dept Sta_f2'][0] + ' to ' + final['Arvl Sta_f2'][0] + 
-                                   ' ,on flight WS{}'.format(final['Flt Num_f2'][0]))
+#                         st.markdown('The scheduled second flight is from '  + final['Dept Sta_f2'][0] + ' to ' + final['Arvl Sta_f2'][0] + 
+#                                    ' ,on flight WS{}'.format(final['Flt Num_f2'][0]))
 
-                        st.markdown('The flight time for second flight is ' + str(round(final['Total Blk time_f2'][0].hour + 
-                                                                                        final['Total Blk time_f2'][0].minute/60,1)) + ' hours')
+#                         st.markdown('The flight time for second flight is ' + str(round(final['Total Blk time_f2'][0].hour + 
+#                                                                                         final['Total Blk time_f2'][0].minute/60,1)) + ' hours')
 
-                        st.markdown('The connection time at {} is: '.format(final['Dept Sta'][0])+
-                                    str(round(final['connection_time_f2'][0].days * 24 + final['connection_time_f2'][0].seconds/3600,1)) + ' hours')
+#                         st.markdown('The connection time at {} is: '.format(final['Dept Sta'][0])+
+#                                     str(round(final['connection_time_f2'][0].days * 24 + final['connection_time_f2'][0].seconds/3600,1)) + ' hours')
 
 
-                        st.markdown('The scheduled third flight is from '  + final['Dept Sta'][0] + ' to ' + final['Arvl Sta'][0] + 
-                                   ' ,on flight WS{}'.format(final['Flt Num'][0]))
+#                         st.markdown('The scheduled third flight is from '  + final['Dept Sta'][0] + ' to ' + final['Arvl Sta'][0] + 
+#                                    ' ,on flight WS{}'.format(final['Flt Num'][0]))
 
-                        st.markdown('The flight time for third flight is ' + str(round(final['Total Blk time'][0].hour + 
-                                                                                        final['Total Blk time'][0].minute/60,1)) + ' hours')
+#                         st.markdown('The flight time for third flight is ' + str(round(final['Total Blk time'][0].hour + 
+#                                                                                         final['Total Blk time'][0].minute/60,1)) + ' hours')
 
-                        st.markdown('The total travel time is ' + 
-                                    str(round(final['Total Blk time_f1'][0].hour+ final['Total Blk time_f1'][0].minute/60+
-                                          final['connection_time_f1'][0].days * 24 + 
-                                          final['connection_time_f1'][0].seconds/3600 +
-                                          final['connection_time_f2'][0].days * 24 + 
-                                          final['connection_time_f2'][0].seconds/3600 +
-                                          final['Total Blk time_f2'][0].hour + final['Total Blk time_f2'][0].minute/60+
-                                          final['Total Blk time'][0].hour + final['Total Blk time'][0].minute/60,1)) +' hours')
+#                         st.markdown('The total travel time is ' + 
+#                                     str(round(final['Total Blk time_f1'][0].hour+ final['Total Blk time_f1'][0].minute/60+
+#                                           final['connection_time_f1'][0].days * 24 + 
+#                                           final['connection_time_f1'][0].seconds/3600 +
+#                                           final['connection_time_f2'][0].days * 24 + 
+#                                           final['connection_time_f2'][0].seconds/3600 +
+#                                           final['Total Blk time_f2'][0].hour + final['Total Blk time_f2'][0].minute/60+
+#                                           final['Total Blk time'][0].hour + final['Total Blk time'][0].minute/60,1)) +' hours')
 
 
                           # converting the timedelta column to int
                         final['connection_time_f1'] = final['connection_time_f1'] / pd.Timedelta(hours=1)
                         final['connection_time_f2'] = final['connection_time_f2'] / pd.Timedelta(hours=1)
-                        st.dataframe(final)
+                        st.dataframe(result_df.T)
                     
                     else: st.markdown('Can not find flight routes within 2 stops, please adjust the AWB Date and AirCraft Type and Try again')
 
