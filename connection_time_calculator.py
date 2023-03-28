@@ -134,23 +134,34 @@ def main():
                                             (t['Day'] >= AWB_date)&
                                             (t['Day']<= str(AWB_date_new)[:10])].reset_index(drop = True)
 
-        # look if there are direct flights
+        # look if there are direct flights in the next 7 days
         direct_flights = t[(t['Dept Sta'] == AWB_origin)&
                         (t['Arvl Sta'] == AWB_destination)&
                         (t['Day'] >= AWB_date)&
                           (t['Day']<= str(AWB_date_new)[:10])].reset_index(drop = True)
 
         # if yes, calculate direct flight time
+
+        # look at if there are direct flights in the future:
+
+        future_direct_flights= t[(t['Dept Sta'] == AWB_origin)&
+                                (t['Arvl Sta'] == AWB_destination)&
+                                (t['Day']>= str(AWB_date_new)[:10])].reset_index(drop = True)
         
         
         
         if len(direct_flights) != 0:
-            st.markdown('There are direct flights')
+            st.markdown('There are direct flights in the next 7 days')
             st.markdown('Flight time is ' + str(direct_flights['Total Blk time'][0]))
             st.markdown('Connection time is 0')
             st.markdown('Total travel time is ' + str(direct_flights['Total Blk time'][0]))
             st.markdown('These are direct flights for the next 7 days including the input flight date')
             st.table(direct_flights)
+
+        
+        elif (len(direct_flights) == 0) and (len(future_direct_flights)!= 0):
+            st.markdown('There are direct flights in the future, but not in the next 7 days.')
+            st.markdown('Please adjust your proposed AWB date and try again.')
 
             
         else: # if there are no direct flights, and assume only 1 stop
