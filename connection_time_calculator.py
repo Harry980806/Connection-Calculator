@@ -228,7 +228,7 @@ def main():
                                                       'Flt Num_f1': 'F1:Flight_Number',
                                                       'Dept Sta_f1':'F1:Depature Station',
                                                       'Arvl Sta_f1':'F1:Arrival Station',
-                                                      'Dept Time_f1:'F1:Departure Time'} )
+                                                      'Dept Time_f1':'F1:Departure Time'} )
                 
                 
                 
