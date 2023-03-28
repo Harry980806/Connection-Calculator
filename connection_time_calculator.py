@@ -249,7 +249,7 @@ def main():
                     # converting the timedelta column to int
                     final['connection time'] = final['connection time'] / pd.Timedelta(hours=1)
                     
-                    st.dataframe(final.T)
+                    st.table(final.T)
                     
              
                     
