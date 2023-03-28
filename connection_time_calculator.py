@@ -128,8 +128,8 @@ def main():
         
         
         # Filter the Dataset to contain only the specified AircraftType
-        if AircraftType != 'ALL':
-            t = t[t['Equip'] == AircraftType]
+        if 'ALL' not in AircraftTypes:
+            t = t[t['Equip'].isin(AircraftTypes)]
             
   
         
