@@ -102,6 +102,13 @@ def main():
     'Select AWB destination',
     t['Arvl Sta'].unique().tolist())
     
+    AircraftTypes = st.multiselect(
+    'Select Aircraft Type',
+    ['789','73H','73W','7F8','7M8','DH4','ALL'],
+    ['789', '7F8'])
+    
+    st.markdown(AircraftTypes)
+    
     
     AircraftType = st.selectbox(
     'Select Aircraft Type',
