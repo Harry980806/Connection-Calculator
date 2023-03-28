@@ -154,7 +154,7 @@ def main():
             
         else: # if there are no direct flights, and assume only 1 stop
             
-            st.markdown('Direct flights not found')
+            st.markdown('No Direct Flights were found.')
             
             # get all flights scheduled to departure from AWB origin on the selected flight date
             
@@ -303,6 +303,8 @@ def main():
                         f2_f3_joint['connection_time_f2'][i].days * 24 + f2_f3_joint['connection_time_f2'][i].seconds/3600    
                         
                     final =  f2_f3_joint[f2_f3_joint['total_travel_time'] == f2_f3_joint['total_travel_time'].min()].reset_index()
+                    
+                    st.markdown(len(final))
                     
                     # if there are multiple flight schedule found, just pick the first one.
                     
