@@ -224,24 +224,32 @@ def main():
             
                     # print the result
                 
-                    result_df = final.rename(columns ={'Day_f1': 'F1:Flight_Date',
+                    result_df = final.rename(columns ={'Day_f1': 'F1:Flight Date',
                                                       'Weekday_f1': 'F1:Weekday',
-                                                      'Flt Num_f1': 'F1:Flight_Number',
+                                                      'Flt Num_f1': 'F1:Flight Number',
                                                       'Dept Sta_f1':'F1:Depature Station',
                                                       'Arvl Sta_f1':'F1:Arrival Station',
                                                       'Dept Time_f1':'F1:Departure Time',
                                                       'Total Blk time_f1':'F1:Flight Time',
                                                       'Equip_f1' : 'F1:Aircraft Type',
                                                       'arrival_time_local_tz_f1':'F1:Arrival Time',
-                                                      'Day_f2': 'F2:Flight_Date',
+                                                      'Day_f2': 'F2:Flight Date',
                                                       'Weekday_f2': 'F2:Weekday',
-                                                      'Flt Num_f2': 'F2:Flight_Number',
+                                                      'Flt Num_f2': 'F2:Flight Number',
                                                       'Dept Sta_f2':'F2:Depature Station',
                                                       'Arvl Sta_f2':'F2:Arrival Station',
                                                       'Dept Time_f2':'F2:Departure Time',
                                                       'Total Blk time_f2':'F2:Flight Time',
-                                                      'Equip_f2' : 'F1:Aircraft Type',
+                                                      'Equip_f2' : 'F2:Aircraft Type',
                                                       'arrival_time_local_tz_f2':'F2:Arrival Time'})
+                    
+                    result_df = result_df[['F1:Flight Date','F1:Weekday','F1:Flight Number',
+                                          'F1:Depature Station','F1:Arrival Station','F1:Departure Time',
+                                          'F1:Flight Time','F1:Aircraft Type','F1:Arrival Time',
+                                          'F2:Flight Date','F2:Weekday','F2:Flight Number',
+                                          'F2:Depature Station','F2:Arrival Station','F2:Departure Time',
+                                          'F2:Flight Time','F2:Aircraft Type','F2:Arrival Time',
+                                          'connection time','total_travel_time']]
                 
                 
                 
