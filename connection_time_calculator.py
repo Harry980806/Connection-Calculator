@@ -255,6 +255,17 @@ def main():
                                            'F2:Arrival Station','F2:STA',
                                           'F2:Flight Time']]
                     
+                    # Time length dataframe
+                    
+                    time_summary_df = pd.DataFrame(
+                      columns = ['Time'],
+                    index=pd.Index(['E2E time', 'total connection','total flying time']))
+                    
+                    # connection time
+                    time_summary_df['Time'][1] = str(round(final['connection time'][0],2))
+                    
+                    st.table(time_summary_df)
+                    
                     
     
                 
@@ -276,17 +287,23 @@ def main():
                     
                     st.markdown('Found flight route with 1 stop, please see the table below for details')
         
-                    st.markdown('The total travel time is ' + 
-                                str(round(final['Total Blk time_f1'][0].hour+ final['Total Blk time_f1'][0].minute/60+
-                                      final['connection time'][0].days * 24 + 
-                                      final['connection time'][0].seconds/3600 +
-                                      final['Total Blk time_f2'][0].hour + final['Total Blk time_f2'][0].minute/60,1)) +' hours')
+        
+        
+#                     st.markdown('The total travel time is ' + 
+#                                 str(round(final['Total Blk time_f1'][0].hour+ final['Total Blk time_f1'][0].minute/60+
+#                                       final['connection time'][0].days * 24 + 
+#                                       final['connection time'][0].seconds/3600 +
+#                                       final['Total Blk time_f2'][0].hour + final['Total Blk time_f2'][0].minute/60,1)) +' hours')
                     
                     # converting the timedelta column to int
                     
                     # final['connection time'] = final['connection time'] / pd.Timedelta(hours=1)
                     
+                    
+                    
+                    
                     st.table(result_df1.T)
+                    
                     st.markdown('The connection time at {} is: '.format(final['Dept Sta_f2'][0])+
                                  str(final['connection time'][0]))
                         
