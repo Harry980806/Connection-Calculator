@@ -470,28 +470,7 @@ def main():
                     
                     # Time length dataframe
                     
-                        time_summary_df = pd.DataFrame(
-                            columns = ['Time'],
-                        index=pd.Index(['E2E time', 'total connection','total flying time']))
-                        
-                        # E2E Time
-                        
-                        time_summary_df['Time'][0] = str(round(final['Total Blk time_f1'][0].hour+ final['Total Blk time_f1'][0].minute/60+\
-                                                final['connection_time_f1'][0].days * 24 + \
-                                                final['connection_time_f1'][0].seconds/3600 +\
-                                                final['connection_time_f2'][0].days * 24 +\
-                                                final['connection_time_f2'][0].seconds/3600 +\
-                                                final['Total Blk time_f2'][0].hour + final['Total Blk time_f2'][0].minute/60+\
-                                                final['Total Blk time'][0].hour + final['Total Blk time'][0].minute/60,1)) +' hours'
-                        
-                        # connection time
-                        
-                        # time_summary_df['Time'][1] = str(final['connection time'][0])
-                        
-                        # total flight time
-                        time_summary_df['Time'][2] = str(round(final['Total Blk time_f1'][0].hour+ final['Total Blk time_f1'][0].minute/60+
-                                                final['Total Blk time_f2'][0].hour + final['Total Blk time_f2'][0].minute/60+
-                                                final['Total Blk time'][0].hour + final['Total Blk time'][0].minute/60,1)) +' hours'
+                       
 
 
 
@@ -532,31 +511,46 @@ def main():
 #                                           final['Total Blk time'][0].hour + final['Total Blk time'][0].minute/60,1)) +' hours')
 
 
+                        time_summary_df = pd.DataFrame(
+                            columns = ['Time'],
+                        index=pd.Index(['E2E time', 'total connection','total flying time']))
+    
+                        # E2E Time
+                        time_summary_df['Time'][0] = str(round(final['Total Blk time_f1'][0].hour+ final['Total Blk time_f1'][0].minute/60+\
+                                                final['connection_time_f1'][0].days * 24 + \
+                                                final['connection_time_f1'][0].seconds/3600 +\
+                                                final['connection_time_f2'][0].days * 24 +\
+                                                final['connection_time_f2'][0].seconds/3600 +\
+                                                final['Total Blk time_f2'][0].hour + final['Total Blk time_f2'][0].minute/60+\
+                                                final['Total Blk time'][0].hour + final['Total Blk time'][0].minute/60,1)) +' hours'
+
+
                           # converting the timedelta column to int
                         final['connection_time_f1'] = final['connection_time_f1'] / pd.Timedelta(hours=1)
                         final['connection_time_f2'] = final['connection_time_f2'] / pd.Timedelta(hours=1)
                         final['total_travel_time']= final['total_travel_time'].astype(float).round(1)
                 
                 
+                        
+                        # E2E Time
+                        st.markdown(final['connection_time_f1'][0])
+                        st.markdown(type(final['connection_time_f1'][0]))
+                        
+                        # connection time
+                        
+                        # time_summary_df['Time'][1] = str(final['connection time'][0])
+                        
+                        # total flight time
+                        time_summary_df['Time'][2] = str(round(final['Total Blk time_f1'][0].hour+ final['Total Blk time_f1'][0].minute/60+
+                                                final['Total Blk time_f2'][0].hour + final['Total Blk time_f2'][0].minute/60+
+                                                final['Total Blk time'][0].hour + final['Total Blk time'][0].minute/60,1)) +' hours'
+                
+                
                         st.markdown('Time Summary')
                         st.table(time_summary_df)
                         
                         
-                        col1, col2, col3 = st.columns(3)
 
-                        with col1:
-                            st.markdown('Details -- Flight1')
-                            st.dataframe(result_df1.T)
-                            st.markdown('Connection time at {}: '.format(final['Dept Sta_f2'][0])+str(round(final['connection_time_f1'][0],1)) +' hours')
-
-                        with col2:
-                           st.markdown('Details -- Flight2')
-                           st.dataframe(result_df2.T)
-                           st.markdown('Connection time at {}: '.format(final['Dept Sta'][0])+str(round(final['connection_time_f2'][0],1))+' hours')
-
-                        with col3:
-                           st.markdown('Details -- Flight3')
-                           st.dataframe(result_df3.T)
                                                 
                                                 
                         st.markdown('Details -- Flight1')
