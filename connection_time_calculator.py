@@ -417,7 +417,7 @@ def main():
                         # rename the dataframe for display:
                         
                         
-                       result_df = final.rename(columns ={'Day_f1': 'F1:Flight Date',
+                        result_df = final.rename(columns ={'Day_f1': 'F1:Flight Date',
                                                       'Weekday_f1': 'F1:DOW',
                                                       'Flt Num_f1': 'F1:Flight Number',
                                                       'Dept Sta_f1':'F1:Departure Station',
@@ -447,49 +447,49 @@ def main():
                                                       'Equip' : 'F3:A/C',
                                                       'arrival_time_local_tz':'F3:STA'   
                                                          
-                                                         }
+                                                         })
                    
                     
-                    result_df1 = result_df[['F1:Flight Number','F1:A/C','F1:STD',
+                        result_df1 = result_df[['F1:Flight Number','F1:A/C','F1:STD',
                                             'F1:DOW', 'F1:Departure Station',
                                            'F1:Arrival Station','F1:STA',
                                           'F1:Flight Time']]
                     
                     
-                    result_df2 = result_df[['F2:Flight Number','F2:A/C','F2:STD',
+                        result_df2 = result_df[['F2:Flight Number','F2:A/C','F2:STD',
                                             'F2:DOW', 'F2:Departure Station',
                                            'F2:Arrival Station','F2:STA',
                                           'F2:Flight Time']]
                                                 
-                    result_df3 = result_df[['F3:Flight Number','F3:A/C','F3:STD',
+                        result_df3 = result_df[['F3:Flight Number','F3:A/C','F3:STD',
                                             'F3:DOW', 'F3:Departure Station',
                                            'F3:Arrival Station','F3:STA',
                                           'F3:Flight Time']]                            
                     
                     # Time length dataframe
                     
-                    time_summary_df = pd.DataFrame(
-                      columns = ['Time'],
-                    index=pd.Index(['E2E time', 'total connection','total flying time']))
-                    
-                    # E2E Time
-                    
-                    time_summary_df['Time'][0] = str(round(final['Total Blk time_f1'][0].hour+ final['Total Blk time_f1'][0].minute/60+\
-                                          final['connection_time_f1'][0].days * 24 + \
-                                          final['connection_time_f1'][0].seconds/3600 +\
-                                          final['connection_time_f2'][0].days * 24 +\
-                                          final['connection_time_f2'][0].seconds/3600 +\
-                                          final['Total Blk time_f2'][0].hour + final['Total Blk time_f2'][0].minute/60+\
-                                          final['Total Blk time'][0].hour + final['Total Blk time'][0].minute/60,1)) +' hours'
-                    
-                    # connection time
-                   
-                    # time_summary_df['Time'][1] = str(final['connection time'][0])
-                    
-                    # total flight time
-                    time_summary_df['Time'][2] = str(round(final['Total Blk time_f1'][0].hour+ final['Total Blk time_f1'][0].minute/60+
-                                          final['Total Blk time_f2'][0].hour + final['Total Blk time_f2'][0].minute/60+
-                                          final['Total Blk time'][0].hour + final['Total Blk time'][0].minute/60,1)) +' hours'
+                        time_summary_df = pd.DataFrame(
+                            columns = ['Time'],
+                        index=pd.Index(['E2E time', 'total connection','total flying time']))
+                        
+                        # E2E Time
+                        
+                        time_summary_df['Time'][0] = str(round(final['Total Blk time_f1'][0].hour+ final['Total Blk time_f1'][0].minute/60+\
+                                                final['connection_time_f1'][0].days * 24 + \
+                                                final['connection_time_f1'][0].seconds/3600 +\
+                                                final['connection_time_f2'][0].days * 24 +\
+                                                final['connection_time_f2'][0].seconds/3600 +\
+                                                final['Total Blk time_f2'][0].hour + final['Total Blk time_f2'][0].minute/60+\
+                                                final['Total Blk time'][0].hour + final['Total Blk time'][0].minute/60,1)) +' hours'
+                        
+                        # connection time
+                        
+                        # time_summary_df['Time'][1] = str(final['connection time'][0])
+                        
+                        # total flight time
+                        time_summary_df['Time'][2] = str(round(final['Total Blk time_f1'][0].hour+ final['Total Blk time_f1'][0].minute/60+
+                                                final['Total Blk time_f2'][0].hour + final['Total Blk time_f2'][0].minute/60+
+                                                final['Total Blk time'][0].hour + final['Total Blk time'][0].minute/60,1)) +' hours'
 
 
 
