@@ -445,7 +445,7 @@ def main():
                                                       'Dept Time':'F3:STD',
                                                       'Total Blk time':'F3:Flight Time',
                                                       'Equip' : 'F3:A/C',
-                                                      'arrival_time_local_tz':'F3:STA',   
+                                                      'arrival_time_local_tz':'F3:STA'   
                                                          
                                                          }
                    
