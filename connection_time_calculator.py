@@ -261,6 +261,12 @@ def main():
                       columns = ['Time'],
                     index=pd.Index(['E2E time', 'total connection','total flying time']))
                     
+                    # E2E Time
+                    
+                    st.markdown(result_df1['F1:Flight Time'][0])
+                    
+                    # time_summary_df['Time'][0] = str
+                    
                     # connection time
                     time_summary_df['Time'][1] = str(final['connection time'][0])
                     
