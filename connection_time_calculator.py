@@ -544,8 +544,10 @@ def main():
                                                 
                         st.markdown('Details -- Flight1')
                         st.dataframe(result_df1.T)
+                        st.markdown(final['connection_time_f1'][0])
                         st.markdown('Details -- Flight2')
                         st.dataframe(result_df2.T)
+                        st.markdown(final['connection_time_f1'][0])
                         st.markdown('Details -- Flight3')
                         st.dataframe(result_df3.T)
                     
