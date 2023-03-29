@@ -270,7 +270,7 @@ def main():
                                        final['Total Blk time_f2'][0].hour + final['Total Blk time_f2'][0].minute/60,1)) + ' hours'
                     
                     # connection time
-                    time_summary_df['Time'][1] = str(final['connection time'][0])
+                    # time_summary_df['Time'][1] = str(final['connection time'][0])
                     
                     # total flight time
                     time_summary_df['Time'][2] = str(
@@ -279,7 +279,7 @@ def main():
                     
                     st.markdown('Found flight route with 1 stop, please see the tables below for details.')
                     
-                    
+                    time_summary_df['Time'][1] = str(final['connection time'][0])
                     st.markdown('Time Summary')
                     st.table(time_summary_df)
                     
@@ -312,9 +312,12 @@ def main():
                     
                     # converting the timedelta column to int
                     
-                    # final['connection time'] = final['connection time'] / pd.Timedelta(hours=1)
+                    final['connection time'] = final['connection time'] / pd.Timedelta(hours=1)
                     
                     
+                    time_summary_df['Time'][1] = str(round(final['connection time'][0],1)) + ' hours'
+                    st.markdown('Time Summary')
+                    st.table(time_summary_df)
                     
                     st.markdown('Details -- Flight 1')
                     st.table(result_df1.T)
