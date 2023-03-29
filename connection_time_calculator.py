@@ -151,7 +151,7 @@ def main():
         
         
         if len(direct_flights) != 0:
-            st.markdown('There are direct flights in the next 7 days')
+            st.markdown('✔️There are direct flights in the next 7 days')
             st.markdown('Flight time is ' + str(direct_flights['Total Blk time'][0]))
             st.markdown('Connection time is 0')
             st.markdown('Total travel time is ' + str(direct_flights['Total Blk time'][0]))
@@ -166,7 +166,7 @@ def main():
             
         else: # if there are no direct flights, and assume only 1 stop
             
-            st.markdown('No direct flights were found.')
+            st.markdown('❌No direct flights were found.')
             
             # get all flights scheduled to departure from AWB origin on the selected flight date
             
@@ -178,7 +178,7 @@ def main():
 
             # if there are no departing flights
             if len(first_flights_departed)== 0:
-                st.markdown('There are no flights departed from {} on the selected flight date'.format(AWB_origin))
+                st.markdown('❌There are no flights departed from {} on the selected flight date'.format(AWB_origin))
                 st.markdown('Please change your flight Date and/or Aircraft Type and try again.')
                 
             else:
@@ -277,7 +277,7 @@ def main():
                                        round(final['Total Blk time_f1'][0].hour+ final['Total Blk time_f1'][0].minute/60+\
                                        final['Total Blk time_f2'][0].hour + final['Total Blk time_f2'][0].minute/60,1)) + ' hours'
                     
-                    st.markdown('Found flight route with 1 stop, please see the tables below for details.')
+                    st.markdown('✔️Found flight route with 1 stop, please see the tables below for details.')
                     
 
 #                     st.markdown('The scheduled first flight is from '  + final['Dept Sta_f1'][0] + ' to ' + final['Arvl Sta_f1'][0] + 
@@ -333,7 +333,7 @@ def main():
                 # there are no transit airport found
                 else:
                     
-                    st.markdown('No 1 stop flight schedule found')
+                    st.markdown('❌No 1 stop flight schedule found')
                     
                     required_final_flights = t[(t['Arvl Sta'] == AWB_destination)&
                                             (t['Day'] >= AWB_date)&
@@ -402,7 +402,7 @@ def main():
                     
                     if len(f2_f3_joint)!=0:    
                         
-                        st.markdown('Found schedule with 2 stops')
+                        st.markdown('✔️Found schedule with 2 stops')
                         
                         final =  f2_f3_joint[f2_f3_joint['total_travel_time'] == f2_f3_joint['total_travel_time'].min()].reset_index()
 
@@ -560,7 +560,7 @@ def main():
                         st.markdown('Details -- Flight3')
                         st.dataframe(result_df3.T)
                     
-                    else: st.markdown('Can not find flight routes within 2 stops, please adjust the flight date and airCraft type and try again')
+                    else: st.markdown('❌Can not find flight routes within 2 stops, please adjust the flight date and airCraft type and try again')
 
         st.markdown('Calculation Done')
                     
