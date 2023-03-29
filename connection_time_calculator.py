@@ -279,13 +279,7 @@ def main():
                     
                     st.markdown('Found flight route with 1 stop, please see the tables below for details.')
                     
-                    time_summary_df['Time'][1] = str(final['connection time'][0])
-                    st.markdown('Time Summary')
-                    st.table(time_summary_df)
-                    
 
-                
-                
 #                     st.markdown('The scheduled first flight is from '  + final['Dept Sta_f1'][0] + ' to ' + final['Arvl Sta_f1'][0] + 
 #                                ' ,on flight WS{}'.format(final['Flt Num_f1'][0]))
 #                     st.markdown('The flight time for first flight is ' + str(round(final['Total Blk time_f1'][0].hour + 
