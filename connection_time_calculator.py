@@ -161,7 +161,7 @@ def main():
         
         elif (len(direct_flights) == 0) and (len(future_direct_flights)!= 0):
             st.markdown('There are direct flights in the future, but not in the next 7 days.')
-            st.markdown('Please adjust your proposed AWB date and try again.')
+            st.markdown('Please adjust your proposed flight date and try again.')
 
             
         else: # if there are no direct flights, and assume only 1 stop
@@ -178,8 +178,8 @@ def main():
 
             # if there are no departing flights
             if len(first_flights_departed)== 0:
-                st.markdown('There are no flights departed from {}'.format(AWB_origin))
-                st.markdown('Please change your AWB Date and/or Aircraft Type and try again.')
+                st.markdown('There are no flights departed from {} on the selected flight date'.format(AWB_origin))
+                st.markdown('Please change your flight Date and/or Aircraft Type and try again.')
                 
             else:
     
@@ -457,7 +457,7 @@ def main():
                         final['total_travel_time']= final['total_travel_time'].astype(float).round(1)
                         st.dataframe(result_df.T)
                     
-                    else: st.markdown('Can not find flight routes within 2 stops, please adjust the AWB Date and AirCraft Type and Try again')
+                    else: st.markdown('Can not find flight routes within 2 stops, please adjust the flight date and airCraft type and try again')
 
         st.markdown('Calculation Done')
                     
