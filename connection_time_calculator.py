@@ -233,6 +233,7 @@ def main():
                                                       'Total Blk time_f1':'F1:Flight Time',
                                                       'Equip_f1' : 'F1:Aircraft Type',
                                                       'arrival_time_local_tz_f1':'F1:Arrival Time',
+                                                       
                                                       'Day_f2': 'F2:Flight Date',
                                                       'Weekday_f2': 'F2:Weekday',
                                                       'Flt Num_f2': 'F2:Flight Number',
@@ -278,7 +279,7 @@ def main():
                     # converting the timedelta column to int
                     final['connection time'] = final['connection time'] / pd.Timedelta(hours=1)
                     
-                    st.table(result_df.T.iloc[1:])
+                    st.table(result_df.T)
                     
              
                     
