@@ -271,7 +271,7 @@ def main():
                                        round(final['Total Blk time_f1'][0].hour+ final['Total Blk time_f1'][0].minute/60+\
                                        final['connection time'][0].days * 24 + \
                                        final['connection time'][0].seconds/3600 +\
-                                       final['Total Blk time_f2'][0].hour + final['Total Blk time_f2'][0].minute/60,1))
+                                       final['Total Blk time_f2'][0].hour + final['Total Blk time_f2'][0].minute/60,1)) + 'hours'
                     
                     # connection time
                     time_summary_df['Time'][1] = str(final['connection time'][0])
@@ -279,14 +279,12 @@ def main():
                     # total flight time
                     time_summary_df['Time'][2] = str(
                                        round(final['Total Blk time_f1'][0].hour+ final['Total Blk time_f1'][0].minute/60+\
-                                       final['Total Blk time_f2'][0].hour + final['Total Blk time_f2'][0].minute/60,1))
+                                       final['Total Blk time_f2'][0].hour + final['Total Blk time_f2'][0].minute/60,1)) + 'hours'
                     
                     
                     st.table(time_summary_df)
                     
-                    
-    
-                
+
                 
                 
 #                     st.markdown('The scheduled first flight is from '  + final['Dept Sta_f1'][0] + ' to ' + final['Arvl Sta_f1'][0] + 
