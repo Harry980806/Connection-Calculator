@@ -74,7 +74,7 @@ def data_cleaning(df1,df2,df3):
 def main():
  
     image = Image.open('westjet logo.png')
-    st.image(image, width=200)
+    st.image(image, width=400)
     
     st.title('WestJet Cargo Flight Scanner ✈️')
     
