@@ -225,28 +225,39 @@ def main():
                     # print the result
                 
                     result_df = final.rename(columns ={'Day_f1': 'F1:Flight Date',
-                                                      'Weekday_f1': 'F1:Weekday',
+                                                      'Weekday_f1': 'F1:DOW',
                                                       'Flt Num_f1': 'F1:Flight Number',
                                                       'Dept Sta_f1':'F1:Depature Station',
                                                       'Arvl Sta_f1':'F1:Arrival Station',
-                                                      'Dept Time_f1':'F1:Departure Time',
+                                                      'Dept Time_f1':'F1:STD',
                                                       'Total Blk time_f1':'F1:Flight Time',
-                                                      'Equip_f1' : 'F1:Aircraft Type',
-                                                      'arrival_time_local_tz_f1':'F1:Arrival Time',
+                                                      'Equip_f1' : 'F1:A/C',
+                                                      'arrival_time_local_tz_f1':'F1:STA',
                                                        
                                                       'Day_f2': 'F2:Flight Date',
-                                                      'Weekday_f2': 'F2:Weekday',
+                                                      'Weekday_f2': 'F2:DOW',
                                                       'Flt Num_f2': 'F2:Flight Number',
                                                       'Dept Sta_f2':'F2:Depature Station',
                                                       'Arvl Sta_f2':'F2:Arrival Station',
-                                                      'Dept Time_f2':'F2:Departure Time',
+                                                      'Dept Time_f2':'F2:STD',
                                                       'Total Blk time_f2':'F2:Flight Time',
-                                                      'Equip_f2' : 'F2:Aircraft Type',
-                                                      'arrival_time_local_tz_f2':'F2:Arrival Time'})
+                                                      'Equip_f2' : 'F2:A/C',
+                                                      'arrival_time_local_tz_f2':'F2:STA'})
                     
-                    result_df = result_df[['F1:Flight Number','F1:Departure Time','F1:Weekday',
-                                          'F1:Depature Station','F1:Arrival Station',
-                                          'F1:Flight Time','F1:Aircraft Type','F1:Arrival Time',
+                    result_df1 = result_df[['F1:Flight Number','F1:A/C','F1:STD',
+                                            'F1:DOW', 'F1:Departure Station',
+                                           'F1:Arrival Station','F1:STA',
+                                          'F1:Flight Time']]
+                    
+                    
+                     result_df2 = result_df[['F2:Flight Number','F2:A/C','F2:STD',
+                                            'F2:DOW', 'F2:Departure Station',
+                                           'F2:Arrival Station','F2:STA',
+                                          'F2:Flight Time']]
+                    
+                    
+                    
+                    
                                           'F2:Flight Number','F2:Departure Time','F2:Weekday',
                                           'F2:Depature Station','F2:Arrival Station',
                                           'F2:Flight Time','F2:Aircraft Type','F2:Arrival Time',
@@ -279,7 +290,9 @@ def main():
                     # converting the timedelta column to int
                     final['connection time'] = final['connection time'] / pd.Timedelta(hours=1)
                     
-                    st.table(result_df.T)
+                    st.table(result_df1.T)
+                    
+                    st.table(result_df2.T)
                     
              
                     
