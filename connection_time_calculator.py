@@ -265,7 +265,7 @@ def main():
                     
                     st.markdown(type(result_df1['F1:Flight Time'][0]))
                     st.markdown(result_df1['F1:Flight Time'][0])
-                    st.markdown(type(final['connection time']))
+                    st.markdown(type(final['connection time'][0]))
                     
                     # time_summary_df['Time'][0] = str
                     
