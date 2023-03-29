@@ -263,10 +263,6 @@ def main():
                     
                     # E2E Time
                     
-                    st.markdown(type(result_df1['F1:Flight Time'][0]))
-                    st.markdown(result_df1['F1:Flight Time'][0])
-                    st.markdown(type(final['connection time'][0]))
-                    
                     time_summary_df['Time'][0] = str(
                                        round(final['Total Blk time_f1'][0].hour+ final['Total Blk time_f1'][0].minute/60+\
                                        final['connection time'][0].days * 24 + \
@@ -403,6 +399,8 @@ def main():
                         f2_f3_joint['connection_time_f2'][i].days * 24 + f2_f3_joint['connection_time_f2'][i].seconds/3600    
                     
                     
+                    
+                    
            
                     
                     if len(f2_f3_joint)!=0:    
@@ -419,49 +417,79 @@ def main():
                         # rename the dataframe for display:
                         
                         
-                        result_df = final.rename(columns ={'Day_f1': 'F1:Flight Date',
-                                                      'Weekday_f1': 'F1:Weekday',
+                       result_df = final.rename(columns ={'Day_f1': 'F1:Flight Date',
+                                                      'Weekday_f1': 'F1:DOW',
                                                       'Flt Num_f1': 'F1:Flight Number',
-                                                      'Dept Sta_f1':'F1:Depature Station',
+                                                      'Dept Sta_f1':'F1:Departure Station',
                                                       'Arvl Sta_f1':'F1:Arrival Station',
-                                                      'Dept Time_f1':'F1:Departure Time',
+                                                      'Dept Time_f1':'F1:STD',
                                                       'Total Blk time_f1':'F1:Flight Time',
-                                                      'Equip_f1' : 'F1:Aircraft Type',
-                                                      'arrival_time_local_tz_f1':'F1:Arrival Time',
-                                                           
+                                                      'Equip_f1' : 'F1:A/C',
+                                                      'arrival_time_local_tz_f1':'F1:STA',
+                                                       
                                                       'Day_f2': 'F2:Flight Date',
-                                                      'Weekday_f2': 'F2:Weekday',
+                                                      'Weekday_f2': 'F2:DOW',
                                                       'Flt Num_f2': 'F2:Flight Number',
-                                                      'Dept Sta_f2':'F2:Depature Station',
+                                                      'Dept Sta_f2':'F2:Departure Station',
                                                       'Arvl Sta_f2':'F2:Arrival Station',
-                                                      'Dept Time_f2':'F2:Departure Time',
+                                                      'Dept Time_f2':'F2:STD',
                                                       'Total Blk time_f2':'F2:Flight Time',
-                                                      'Equip_f2' : 'F2:Aircraft Type',
-                                                      'arrival_time_local_tz_f2':'F2:Arrival Time',
-                                                          
+                                                      'Equip_f2' : 'F2:A/C',
+                                                      'arrival_time_local_tz_f2':'F2:STA',
+                                                         
                                                       'Day': 'F3:Flight Date',
-                                                      'Weekday': 'F3:Weekday',
+                                                      'Weekday': 'F3:DOW',
                                                       'Flt Num': 'F3:Flight Number',
-                                                      'Dept Sta':'F3:Depature Station',
+                                                      'Dept Sta':'F3:Departure Station',
                                                       'Arvl Sta':'F3:Arrival Station',
-                                                      'Dept Time':'F3:Departure Time',
+                                                      'Dept Time':'F3:STD',
                                                       'Total Blk time':'F3:Flight Time',
-                                                      'Equip' : 'F3:Aircraft Type',
-                                                      'arrival_time_local_tz':'F3:Arrival Time'})
+                                                      'Equip' : 'F3:A/C',
+                                                      'arrival_time_local_tz':'F3:STA',   
+                                                         
+                                                         }
+                   
                     
-                        result_df = result_df[['F1:Flight Number','F1:Departure Time','F1:Weekday',
-                                          'F1:Depature Station','F1:Arrival Station',
-                                          'F1:Flight Time','F1:Aircraft Type','F1:Arrival Time',
+                    result_df1 = result_df[['F1:Flight Number','F1:A/C','F1:STD',
+                                            'F1:DOW', 'F1:Departure Station',
+                                           'F1:Arrival Station','F1:STA',
+                                          'F1:Flight Time']]
+                    
+                    
+                    result_df2 = result_df[['F2:Flight Number','F2:A/C','F2:STD',
+                                            'F2:DOW', 'F2:Departure Station',
+                                           'F2:Arrival Station','F2:STA',
+                                          'F2:Flight Time']]
                                                 
-                                          'F2:Flight Number','F2:Departure Time','F2:Weekday',
-                                          'F2:Depature Station','F2:Arrival Station',
-                                          'F2:Flight Time','F2:Aircraft Type','F2:Arrival Time',
-                                                
-                                          'F3:Flight Number','F3:Departure Time','F2:Weekday',
-                                          'F3:Depature Station','F3:Arrival Station',
-                                          'F3:Flight Time','F3:Aircraft Type','F3:Arrival Time',
-                                                
-                                          'connection_time_f1','connection_time_f2','total_travel_time']]
+                    result_df3 = result_df[['F3:Flight Number','F3:A/C','F3:STD',
+                                            'F3:DOW', 'F3:Departure Station',
+                                           'F3:Arrival Station','F3:STA',
+                                          'F3:Flight Time']]                            
+                    
+                    # Time length dataframe
+                    
+                    time_summary_df = pd.DataFrame(
+                      columns = ['Time'],
+                    index=pd.Index(['E2E time', 'total connection','total flying time']))
+                    
+                    # E2E Time
+                    
+                    time_summary_df['Time'][0] = str(round(final['Total Blk time_f1'][0].hour+ final['Total Blk time_f1'][0].minute/60+\
+                                          final['connection_time_f1'][0].days * 24 + \
+                                          final['connection_time_f1'][0].seconds/3600 +\
+                                          final['connection_time_f2'][0].days * 24 +\
+                                          final['connection_time_f2'][0].seconds/3600 +\
+                                          final['Total Blk time_f2'][0].hour + final['Total Blk time_f2'][0].minute/60+\
+                                          final['Total Blk time'][0].hour + final['Total Blk time'][0].minute/60,1)) +' hours'
+                    
+                    # connection time
+                   
+                    # time_summary_df['Time'][1] = str(final['connection time'][0])
+                    
+                    # total flight time
+                    time_summary_df['Time'][2] = str(round(final['Total Blk time_f1'][0].hour+ final['Total Blk time_f1'][0].minute/60+
+                                          final['Total Blk time_f2'][0].hour + final['Total Blk time_f2'][0].minute/60+
+                                          final['Total Blk time'][0].hour + final['Total Blk time'][0].minute/60,1)) +' hours'
 
 
 
@@ -492,21 +520,25 @@ def main():
 #                         st.markdown('The flight time for third flight is ' + str(round(final['Total Blk time'][0].hour + 
 #                                                                                         final['Total Blk time'][0].minute/60,1)) + ' hours')
 
-                        st.markdown('The total travel time is ' + 
-                                    str(round(final['Total Blk time_f1'][0].hour+ final['Total Blk time_f1'][0].minute/60+
-                                          final['connection_time_f1'][0].days * 24 + 
-                                          final['connection_time_f1'][0].seconds/3600 +
-                                          final['connection_time_f2'][0].days * 24 + 
-                                          final['connection_time_f2'][0].seconds/3600 +
-                                          final['Total Blk time_f2'][0].hour + final['Total Blk time_f2'][0].minute/60+
-                                          final['Total Blk time'][0].hour + final['Total Blk time'][0].minute/60,1)) +' hours')
+#                         st.markdown('The total travel time is ' + 
+#                                     str(round(final['Total Blk time_f1'][0].hour+ final['Total Blk time_f1'][0].minute/60+
+#                                           final['connection_time_f1'][0].days * 24 + 
+#                                           final['connection_time_f1'][0].seconds/3600 +
+#                                           final['connection_time_f2'][0].days * 24 + 
+#                                           final['connection_time_f2'][0].seconds/3600 +
+#                                           final['Total Blk time_f2'][0].hour + final['Total Blk time_f2'][0].minute/60+
+#                                           final['Total Blk time'][0].hour + final['Total Blk time'][0].minute/60,1)) +' hours')
 
 
                           # converting the timedelta column to int
                         final['connection_time_f1'] = final['connection_time_f1'] / pd.Timedelta(hours=1)
                         final['connection_time_f2'] = final['connection_time_f2'] / pd.Timedelta(hours=1)
                         final['total_travel_time']= final['total_travel_time'].astype(float).round(1)
-                        st.dataframe(result_df.T)
+                                                
+                                                
+                        st.dataframe(result_df1.T)
+                        st.dataframe(result_df2.T)
+                        st.dataframe(result_df3.T)
                     
                     else: st.markdown('Can not find flight routes within 2 stops, please adjust the flight date and airCraft type and try again')
 
