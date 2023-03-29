@@ -265,13 +265,15 @@ def main():
                     
 #                     st.markdown('The flight time for second flight is ' + str(round(final['Total Blk time_f2'][0].hour + 
 #                                                                                     final['Total Blk time_f2'][0].minute/60,1)) + ' hours')
-#                     st.markdown('The total travel time is ' + 
-#                                 str(round(final['Total Blk time_f1'][0].hour+ final['Total Blk time_f1'][0].minute/60+
-#                                       final['connection time'][0].days * 24 + 
-#                                       final['connection time'][0].seconds/3600 +
-#                                       final['Total Blk time_f2'][0].hour + final['Total Blk time_f2'][0].minute/60,1)) +' hours')
+
                     
                     st.markdown('Found flight route with 1 stop, please see the table below for details')
+        
+                    st.markdown('The total travel time is ' + 
+                                str(round(final['Total Blk time_f1'][0].hour+ final['Total Blk time_f1'][0].minute/60+
+                                      final['connection time'][0].days * 24 + 
+                                      final['connection time'][0].seconds/3600 +
+                                      final['Total Blk time_f2'][0].hour + final['Total Blk time_f2'][0].minute/60,1)) +' hours')
                     
                     # converting the timedelta column to int
                     final['connection time'] = final['connection time'] / pd.Timedelta(hours=1)
@@ -437,14 +439,14 @@ def main():
 #                         st.markdown('The flight time for third flight is ' + str(round(final['Total Blk time'][0].hour + 
 #                                                                                         final['Total Blk time'][0].minute/60,1)) + ' hours')
 
-#                         st.markdown('The total travel time is ' + 
-#                                     str(round(final['Total Blk time_f1'][0].hour+ final['Total Blk time_f1'][0].minute/60+
-#                                           final['connection_time_f1'][0].days * 24 + 
-#                                           final['connection_time_f1'][0].seconds/3600 +
-#                                           final['connection_time_f2'][0].days * 24 + 
-#                                           final['connection_time_f2'][0].seconds/3600 +
-#                                           final['Total Blk time_f2'][0].hour + final['Total Blk time_f2'][0].minute/60+
-#                                           final['Total Blk time'][0].hour + final['Total Blk time'][0].minute/60,1)) +' hours')
+                        st.markdown('The total travel time is ' + 
+                                    str(round(final['Total Blk time_f1'][0].hour+ final['Total Blk time_f1'][0].minute/60+
+                                          final['connection_time_f1'][0].days * 24 + 
+                                          final['connection_time_f1'][0].seconds/3600 +
+                                          final['connection_time_f2'][0].days * 24 + 
+                                          final['connection_time_f2'][0].seconds/3600 +
+                                          final['Total Blk time_f2'][0].hour + final['Total Blk time_f2'][0].minute/60+
+                                          final['Total Blk time'][0].hour + final['Total Blk time'][0].minute/60,1)) +' hours')
 
 
                           # converting the timedelta column to int
