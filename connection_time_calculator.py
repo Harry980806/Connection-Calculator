@@ -72,8 +72,8 @@ def data_cleaning(df1,df2,df3):
 
 def main():
      title_container = st.beta_container()
-        col1, col2 = st.beta_columns([1, 20])
-        image = Image.open('/home/ddutt/Pictures/Suzieq-logo-2.jpg')
+     col1, col2 = st.beta_columns([1, 20])
+     image = Image.open('/home/ddutt/Pictures/Suzieq-logo-2.jpg')
         with title_container:
             with col1:
                 st.image(image, width=64)
