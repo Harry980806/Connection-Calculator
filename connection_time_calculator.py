@@ -447,6 +447,7 @@ def main():
                           # converting the timedelta column to int
                         final['connection_time_f1'] = final['connection_time_f1'] / pd.Timedelta(hours=1)
                         final['connection_time_f2'] = final['connection_time_f2'] / pd.Timedelta(hours=1)
+                        final['total_travel_time']= final['total_travel_time'].round(1)
                         st.dataframe(result_df.T)
                     
                     else: st.markdown('Can not find flight routes within 2 stops, please adjust the AWB Date and AirCraft Type and Try again')
