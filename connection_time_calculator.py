@@ -287,7 +287,7 @@ def main():
                     # final['connection time'] = final['connection time'] / pd.Timedelta(hours=1)
                     
                     st.table(result_df1.T)
-                     st.markdown('The connection time at {} is: '.format(final['Dept Sta_f2'][0])+
+                    st.markdown('The connection time at {} is: '.format(final['Dept Sta_f2'][0])+
                                  str(final['connection time'][0]))
                         
 #                     st.markdown('The connection time at {} is: '.format(final['Dept Sta_f2'][0])+
