@@ -538,7 +538,7 @@ def main():
                         
                         # connection time
                         
-                        time_summary_df['Time'][1] = str(round(final['connection_time_f1'][0],1)+round(final['connection_time_f2'][0],1))
+                        time_summary_df['Time'][1] = str(round(final['connection_time_f1'][0],1)+round(final['connection_time_f2'][0],1))+' hours'
                         
                         # total flight time
                         time_summary_df['Time'][2] = str(round(final['Total Blk time_f1'][0].hour+ final['Total Blk time_f1'][0].minute/60+
