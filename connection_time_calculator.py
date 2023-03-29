@@ -283,7 +283,8 @@ def main():
                                       final['Total Blk time_f2'][0].hour + final['Total Blk time_f2'][0].minute/60,1)) +' hours')
                     
                     # converting the timedelta column to int
-                    final['connection time'] = final['connection time'] / pd.Timedelta(hours=1)
+                    
+                    # final['connection time'] = final['connection time'] / pd.Timedelta(hours=1)
                     
                     st.table(result_df1.T)
                     
