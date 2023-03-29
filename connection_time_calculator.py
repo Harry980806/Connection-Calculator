@@ -532,10 +532,7 @@ def main():
                         final['total_travel_time']= final['total_travel_time'].astype(float).round(1)
                 
                 
-                        
-                        # E2E Time
-                        st.markdown(final['connection_time_f1'][0])
-                        st.markdown(type(final['connection_time_f1'][0]))
+                     
                         
                         # connection time
                         
