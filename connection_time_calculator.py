@@ -263,7 +263,9 @@ def main():
                     
                     # E2E Time
                     
+                    st.markdown(type(result_df1['F1:Flight Time'][0]))
                     st.markdown(result_df1['F1:Flight Time'][0])
+                    st.markdown(type(final['connection time']))
                     
                     # time_summary_df['Time'][0] = str
                     
