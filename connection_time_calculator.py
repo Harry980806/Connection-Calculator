@@ -544,11 +544,11 @@ def main():
                                                 
                         st.markdown('Details -- Flight1')
                         st.dataframe(result_df1.T)
-                        st.markdown('The connection time at {} is '.format(final['Dept Sta_f2][0])+str(round(final['connection_time_f1'][0],1)))
+                        st.markdown('The connection time at {} is '.format(final['Dept Sta_f2'][0])+str(round(final['connection_time_f1'][0],1)))
                                                                                  
                         st.markdown('Details -- Flight2')
                         st.dataframe(result_df2.T)
-                        st.markdown('The connection time at {} is '.format(final['Dept Sta][0])+str(round(final['connection_time_f2'][0],1)))
+                        st.markdown('The connection time at {} is '.format(final['Dept Sta'][0])+str(round(final['connection_time_f2'][0],1)))
                         st.markdown('Details -- Flight3')
                         st.dataframe(result_df3.T)
                     
