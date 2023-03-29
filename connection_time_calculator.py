@@ -209,8 +209,8 @@ def main():
                     
                     joint['total_travel_time'] = [None] * len(joint)
                     for i in range(0,len(joint)):
-                        joint.iloc[i,-1] = joint['Total Blk time_f1'][i].hour+ joint['Total Blk time_f1'][0].minute/60+
-                        joint['Total Blk time_f2'][i].hour+ joint['Total Blk time_f2'][0].minute/60+
+                        joint.iloc[i,-1] = joint['Total Blk time_f1'][i].hour+ joint['Total Blk time_f1'][0].minute/60+\
+                        joint['Total Blk time_f2'][i].hour+ joint['Total Blk time_f2'][0].minute/60+\
                         joint['connection time'][i].days * 24 + joint['connection time'][i].seconds/3600
                     
                     
@@ -344,9 +344,9 @@ def main():
                     
                     f2_f3_joint['total_travel_time'] = [None] * len(f2_f3_joint)
                     for i in range(0,len(f2_f3_joint)):
-                        f2_f3_joint.iloc[i,-1] = f2_f3_joint['Total Blk time_f1'][i].hour+f2_f3_joint['Total Blk time_f1'][i].minute/60+
-                        f2_f3_joint['Total Blk time_f2'][i].hour+ f2_f3_joint['Total Blk time_f2'][i].minute/60+
-                        f2_f3_joint['Total Blk time'][i].hour+ f2_f3_joint['Total Blk time'][i].minute/60+
+                        f2_f3_joint.iloc[i,-1] = f2_f3_joint['Total Blk time_f1'][i].hour+f2_f3_joint['Total Blk time_f1'][i].minute/60+\
+                        f2_f3_joint['Total Blk time_f2'][i].hour+ f2_f3_joint['Total Blk time_f2'][i].minute/60+\
+                        f2_f3_joint['Total Blk time'][i].hour+ f2_f3_joint['Total Blk time'][i].minute/60+\
                         f2_f3_joint['connection_time_f1'][i].days * 24 + f2_f3_joint['connection_time_f1'][i].seconds/3600+\
                         f2_f3_joint['connection_time_f2'][i].days * 24 + f2_f3_joint['connection_time_f2'][i].seconds/3600    
                     
