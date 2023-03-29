@@ -262,7 +262,7 @@ def main():
                     index=pd.Index(['E2E time', 'total connection','total flying time']))
                     
                     # connection time
-                    time_summary_df['Time'][1] = str(round(final['connection time'][0],2))
+                    time_summary_df['Time'][1] = final['connection time'][0]
                     
                     st.table(time_summary_df)
                     
