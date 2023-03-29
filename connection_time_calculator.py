@@ -405,6 +405,8 @@ def main():
                     
                     if len(f2_f3_joint)!=0:    
                         
+                        st.markdown('Found schedule with 2 stops')
+                        
                         final =  f2_f3_joint[f2_f3_joint['total_travel_time'] == f2_f3_joint['total_travel_time'].min()].reset_index()
 
 
@@ -534,10 +536,17 @@ def main():
                         final['connection_time_f1'] = final['connection_time_f1'] / pd.Timedelta(hours=1)
                         final['connection_time_f2'] = final['connection_time_f2'] / pd.Timedelta(hours=1)
                         final['total_travel_time']= final['total_travel_time'].astype(float).round(1)
+                
+                
+                        st.markdown('Time Summary')
+                        st.table(time_summary_df)
                                                 
                                                 
+                        st.markdown('Details -- Flight1')
                         st.dataframe(result_df1.T)
+                        st.markdown('Details -- Flight2')
                         st.dataframe(result_df2.T)
+                        st.markdown('Details -- Flight3')
                         st.dataframe(result_df3.T)
                     
                     else: st.markdown('Can not find flight routes within 2 stops, please adjust the flight date and airCraft type and try again')
