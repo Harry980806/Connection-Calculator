@@ -90,9 +90,9 @@ def main():
     st.write('<p style="font-size:16px; color:Black;">This app should help scan end to end time (flight time + connection time) for you.</p>',
                  unsafe_allow_html=True)
 
-    pax= load_data_excel('S23_WB_NB_DH4_08Mar-28Oct.xlsx','S23 Pax Leg Sked')
+    pax= load_data_excel('S23_WB_NB_DH4_08Mar-28Oct_Updated.xlsx','S23 Pax Leg Sked')
 
-    freighter = load_data_excel('W22_S23_Cargo Freight Sked_26Mar-28Oct.xlsx','Daily Leg Schedule')
+    freighter = load_data_excel('W22_S23_Updated EIS - 20Apr-28Oct.xlsx','Updated EIS Leg')
     
     airport_timezone = load_data_csv('Airport timezone.csv')
 
