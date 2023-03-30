@@ -138,9 +138,6 @@ def main():
             t = t[t['Equip'].isin(AircraftTypes)]
             
   
-        
-    
-
         required_final_flights = t[(t['Arvl Sta'] == AWB_destination)&
                                             (t['Day'] >= AWB_date)&
                                             (t['Day']<= str(AWB_date_new)[:10])].reset_index(drop = True)
@@ -315,11 +312,11 @@ def main():
                     
                     # converting the timedelta column to int
                     
-                    final['connection time'] = final['connection time'] / pd.Timedelta(hours=1)
+                    # final['connection time'] = final['connection time'] / pd.Timedelta(hours=1)
                     
                     
                     # connection time
-                    time_summary_df['Time'][1] = str(round(final['connection time'][0],1)) + ' hours'
+                    # time_summary_df['Time'][1] = str(round(final['connection time'][0],1)) + ' hours'
                     
                     st.markdown('Time Summary')
                     st.markdown(final['connection time'][0])
