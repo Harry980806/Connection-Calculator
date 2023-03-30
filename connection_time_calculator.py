@@ -312,7 +312,7 @@ def main():
                     
                     # converting the timedelta column to int
                     
-                    # final['connection time'] = final['connection time'] / pd.Timedelta(hours=1)
+                    final['connection time'] = final['connection time'] / pd.Timedelta(hours=1)
                     
                     
                     # connection time
