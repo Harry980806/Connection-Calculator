@@ -279,9 +279,7 @@ def main():
                                        final['connection time'][0].days * 24 + \
                                        final['connection time'][0].seconds/3600 +\
                                        final['Total Blk time_f2'][0].hour + final['Total Blk time_f2'][0].minute/60,1)) + ' hours'
-                    
-                    # connection time
-                    # time_summary_df['Time'][1] = str(round(final['connection time'][0],1))
+                   
                     
                     # total flight time
                     time_summary_df['Time'][2] = str(
@@ -320,8 +318,11 @@ def main():
                     final['connection time'] = final['connection time'] / pd.Timedelta(hours=1)
                     
                     
+                    # connection time
                     time_summary_df['Time'][1] = str(round(final['connection time'][0],1)) + ' hours'
+                    
                     st.markdown('Time Summary')
+                    st.markdown(final['connection time'][0])
                     st.table(time_summary_df)
                     
                     st.markdown('Details -- Flight 1')
