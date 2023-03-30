@@ -83,7 +83,7 @@ def main():
      st.image(image2, width=400)
     
     
-    st.title('WestJet Cargo Flight Scanner ✈️')
+    st.title('WestJet Cargo Flight Scanner')
     
     st.write('<p style="font-size:14px; color:Black;">Please select the AWB origin,destination,aircraft type and desired shipping date.</p>',
                  unsafe_allow_html=True)
