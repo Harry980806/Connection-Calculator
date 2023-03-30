@@ -72,9 +72,16 @@ def data_cleaning(df1,df2,df3):
 
 
 def main():
- 
-    image = Image.open('WestJet_Leaf_Cargo_Hor_RGB (002).jpg')
-    st.image(image, width=400)
+    col1, col2 = st.columns(2)
+    image1 = Image.open('WestJet_Leaf_Cargo_Hor_RGB (002).jpg')
+    image2 = Image.open('WestJet_GTA_EN_TogetherWith (2997889_2323389).jpg')
+    
+    with col1:
+     st.image(image1, width=400)
+
+    with col2:
+     st.image(image2, width=400)
+    
     
     st.title('WestJet Cargo Flight Scanner ✈️')
     
