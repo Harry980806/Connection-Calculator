@@ -171,7 +171,7 @@ def main():
 
         
         elif (len(direct_flights) == 0) and (len(future_direct_flights)!= 0):
-            st.markdown('There are direct flights in the future, but not in the next 7 days.')
+            st.markdown('🕵️ There are direct flights in the future, but not in the next 7 days.')
             st.markdown('Please adjust your proposed flight date and try again.')
 
             
