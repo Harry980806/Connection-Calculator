@@ -320,6 +320,12 @@ def main():
                     
                     st.markdown('Time Summary')
                     st.markdown(final['connection time'][0])
+                    
+                    total_seconds = final['connection time'][0].total_seconds()
+                    total_hours = total_seconds // 3600
+                    timestamp = datetime.time(hour=int(total_hours), minute=int((total_seconds % 3600) // 60), second=int(total_seconds % 60))
+
+                    st.markdown(timestamp)
                     st.table(time_summary_df)
                     
                     st.markdown('Details -- Flight 1')
