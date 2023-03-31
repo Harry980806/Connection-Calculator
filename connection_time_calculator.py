@@ -329,7 +329,7 @@ def main():
                     st.table(time_summary_df)
                     
                     st.markdown('Details -- Flight 1')
-                    st.table(result_df1.set_index('F1:Flight Number']).T)
+                    st.table(result_df1.set_index('F1:Flight Number').T)
                     
                     st.markdown('The connection time at {} is: '.format(final['Dept Sta_f2'][0])+
                                  str(round(final['connection time'][0],1)) +' hours')
