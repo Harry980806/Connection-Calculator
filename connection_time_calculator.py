@@ -211,7 +211,7 @@ def main():
                     # calculate time between flight1 arrives and flight2 departures
                         joint.iloc[i,-1] = pd.Timedelta(f2_dept - f1_arrive)
 
-                    joint = joint[joint['connection time'] > timedelta(minutes=90)].reset_index(drop = True)
+                    joint = joint[joint['connection time'] >= timedelta(minutes=90)].reset_index(drop = True)
                     
                     #  find not the minimum connection time, but the shortest overall flight time
                     
@@ -384,7 +384,7 @@ def main():
                         
                     
                     # require first connection time >= 2hrs
-                    f2_f3_joint = f2_f3_joint[f2_f3_joint['connection_time_f1'] > 
+                    f2_f3_joint = f2_f3_joint[f2_f3_joint['connection_time_f1'] >= 
                                             timedelta(minutes=90)].reset_index(drop = True)
                     
                     
@@ -397,8 +397,8 @@ def main():
                         f2_f3_joint.iloc[i,-1] = pd.Timedelta(f3_dept - f2_arrive)
 
                         
-                    # require first connection time >= 2hrs
-                    f2_f3_joint = f2_f3_joint[f2_f3_joint['connection_time_f2'] > 
+                    # require first connection time >= 1.5 hrs
+                    f2_f3_joint = f2_f3_joint[f2_f3_joint['connection_time_f2'] >=
                                             timedelta(minutes=90)].reset_index(drop = True)
                     
                     
