@@ -86,7 +86,7 @@ def main():
     st.title('WestJet Cargo Flight Scanner')
     
 
-    st.write('<p style="font-size:16px; color:Black;">This app would scan shipment end to end travel time (flight time + connection time) for you, based on published flight schedule.</p>',
+    st.write('<p style="font-size:16px; color:Black;">This app would scan shipment end to end travel time (flight time + connection time) based on published flight schedule.</p>',
                  unsafe_allow_html=True)
     
      # disclaimer:
