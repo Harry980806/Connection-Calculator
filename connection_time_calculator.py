@@ -91,11 +91,9 @@ def main():
                  unsafe_allow_html=True)
     
      # disclaimer:
-    st.write('<p style="font-size:16px; color:Black;">Designed by WestJet Cargo Analytics Team ©.</p>',
+    st.write('<p style="font-size:14px; color:Black;">Designed by WestJet Cargo Analytics Team ©, CargoRM&Analytics@westjet.com</p>',
                  unsafe_allow_html=True)
         
-    st.write('<p style="font-size:16px; color:Black;">If you have questions, please reach out to CargoRM&Analytics@westjet.com.</p>',
-                 unsafe_allow_html=True)
 
     pax= load_data_excel('S23_WB_NB_DH4_08Mar-28Oct_Updated.xlsx','S23 Pax Leg Sked')
 
