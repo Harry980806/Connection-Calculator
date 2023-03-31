@@ -329,7 +329,7 @@ def main():
                     st.table(time_summary_df)
                     
                     st.markdown('Details -- Flight 1')
-                    st.table(result_df1.set_index('F1:Flight Number'].T)
+                    st.table(result_df1.set_index('F1:Flight Number']).T)
                     
                     st.markdown('The connection time at {} is: '.format(final['Dept Sta_f2'][0])+
                                  str(round(final['connection time'][0],1)) +' hours')
@@ -576,6 +576,13 @@ def main():
                     else: st.markdown('❌Can not find flight routes within 2 stops, please adjust the flight date and airCraft type and try again')
 
         st.markdown('Calculation Done')
+        
+        # disclaimer:
+        st.write('<p style="font-size:10px; color:Black;">Designed by WestJet Cargo Analytics Team.</p>',
+                 unsafe_allow_html=True)
+        
+        st.write('<p style="font-size:10px; color:Black;">If you have questions, please reach out to CargoRM&Analytics@westjet.com.</p>',
+                 unsafe_allow_html=True)
                     
         
      
