@@ -85,9 +85,8 @@ def main():
     
     st.title('WestJet Cargo Flight Scanner')
     
-#     st.write('<p style="font-size:16px; color:Black;">Please select the AWB origin,destination,aircraft type and desired shipping date.</p>',
-#                  unsafe_allow_html=True)
-    st.write('<p style="font-size:16px; color:Black;">This app would help scanning end to end time (flight time + connection time) for you.</p>',
+
+    st.write('<p style="font-size:16px; color:Black;">This app would scan shipment end to end travel time (flight time + connection time) for you, based on published flight schedule.</p>',
                  unsafe_allow_html=True)
     
      # disclaimer:
