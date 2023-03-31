@@ -85,9 +85,16 @@ def main():
     
     st.title('WestJet Cargo Flight Scanner')
     
-    st.write('<p style="font-size:14px; color:Black;">Please select the AWB origin,destination,aircraft type and desired shipping date.</p>',
+    st.write('<p style="font-size:16px; color:Black;">Please select the AWB origin,destination,aircraft type and desired shipping date.</p>',
                  unsafe_allow_html=True)
-    st.write('<p style="font-size:16px; color:Black;">This app should help scan end to end time (flight time + connection time) for you.</p>',
+    st.write('<p style="font-size:16px; color:Black;">This app would help scanning end to end time (flight time + connection time) for you.</p>',
+                 unsafe_allow_html=True)
+    
+     # disclaimer:
+    st.write('<p style="font-size:16px; color:Black;">Designed by WestJet Cargo Analytics Team ©.</p>',
+                 unsafe_allow_html=True)
+        
+    st.write('<p style="font-size:16px; color:Black;">If you have questions, please reach out to CargoRM&Analytics@westjet.com.</p>',
                  unsafe_allow_html=True)
 
     pax= load_data_excel('S23_WB_NB_DH4_08Mar-28Oct_Updated.xlsx','S23 Pax Leg Sked')
@@ -577,12 +584,7 @@ def main():
 
         st.markdown('Calculation Done')
         
-        # disclaimer:
-        st.write('<p style="font-size:10px; color:Black;">Designed by WestJet Cargo Analytics Team.</p>',
-                 unsafe_allow_html=True)
-        
-        st.write('<p style="font-size:10px; color:Black;">If you have questions, please reach out to CargoRM&Analytics@westjet.com.</p>',
-                 unsafe_allow_html=True)
+       
                     
         
      
