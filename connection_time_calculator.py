@@ -96,7 +96,7 @@ def main():
 
     pax= load_data_excel('S23_WB_NB_DH4_08Mar-28Oct_Updated.xlsx','S23 Pax Leg Sked')
 
-    freighter = load_data_excel('W22_S23_Updated EIS - 20Apr-28Oct.xlsx','Updated EIS Leg')
+    freighter = load_data_excel('S23_Cargo Adjustments_YQXORD Included - 15May-28Oct','Daily Leg')
     
     airport_timezone = load_data_csv('Airport timezone.csv')
 
