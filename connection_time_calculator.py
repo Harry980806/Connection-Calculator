@@ -92,11 +92,13 @@ def main():
      # disclaimer:
     st.write('<p style="font-size:14px; color:Black;">Designed by WestJet Cargo Analytics Team ©, CargoRM&Analytics@westjet.com</p>',
                  unsafe_allow_html=True)
-        
 
-    pax= load_data_excel('S23_WB_NB_DH4_08Mar-28Oct_Updated.xlsx','S23 Pax Leg Sked')
 
-    freighter = load_data_excel('S23_Cargo Adjustments_Final - 05Jun-28Oct.xlsx','Leg')
+    pax_and_freighter = load_data_excel('Combined Freighter_Pax _S23 skd_07Jul.xlsx','S23 Jul_Oct)
+
+    pax= pax_and_freighter[pax_and_freighter['Equip']!= '7F8']
+    
+    freighter = pax_and_freighter[pax_and_freighter['Equip'] == '7F8']
     
     airport_timezone = load_data_csv('Airport timezone.csv')
 
