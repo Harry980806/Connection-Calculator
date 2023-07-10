@@ -94,7 +94,7 @@ def main():
                  unsafe_allow_html=True)
 
 
-    pax_and_freighter = load_data_excel('Combined Freighter_Pax _S23 skd_07Jul.xlsx','S23 Jul_Oct)
+    pax_and_freighter = load_data_excel('Combined Freighter_Pax _S23 skd_07Jul.xlsx','S23 Jul_Oct')
 
     pax= pax_and_freighter[pax_and_freighter['Equip']!= '7F8']
     
